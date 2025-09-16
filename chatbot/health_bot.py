@@ -289,27 +289,33 @@ class HealthChatbot:
             if symptoms:
                 matches = self.match_symptoms_to_disease(symptoms)
                 if matches:
-                    response = "Based on your symptoms, here's what I found:\n\n"
+                    response = "📋 Based on your symptoms, here's what I found:\n\n"
                     
                     for disease, confidence in matches:
                         disease_info = self.get_disease_info(disease)
-                        response += f"🔍 {disease.replace('_', ' ').title()}:\n"
+                        # Create a visually distinct header for each disease
+                        response += f"━━━━━━━━━━ 🔍 {disease.replace('_', ' ').upper()} ━━━━━━━━━━\n"
                         response += f"{disease_info.get('description', '')}\n\n"
                         
                         if 'symptoms' in disease_info:
-                            response += "Symptoms: " + ", ".join(disease_info['symptoms']) + "\n\n"
+                            response += "🤒 SYMPTOMS\n"
+                            symptoms_list = disease_info['symptoms']
+                            # Format symptoms in bullet points for better readability
+                            response += "• " + "\n• ".join(symptoms_list) + "\n\n"
                         
                         if 'prevention' in disease_info:
-                            response += "Prevention:\n"
+                            response += "🛡️ PREVENTION\n"
                             for prev in disease_info['prevention']:
                                 response += f"• {prev}\n"
+                            response += "\n"
                         
                         if 'when_to_seek_help' in disease_info:
-                            response += "\n⚠️ Seek medical help if:\n"
+                            response += "⚠️ SEEK MEDICAL HELP IF:\n"
                             for warning in disease_info['when_to_seek_help']:
                                 response += f"• {warning}\n"
                         
-                        response += "\n" + "="*30 + "\n"
+                        # Add extra spacing between diseases
+                        response += "\n\n"
                 else:
                     response = "I understand you're experiencing some symptoms. While I can provide general health information, it's important to consult with a healthcare professional for proper diagnosis and treatment.\n\n"
                     response += "For immediate medical concerns, please contact:\n"

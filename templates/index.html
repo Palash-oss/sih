@@ -66,6 +66,33 @@
             font-size: 2.5rem;
             font-weight: bold;
         }
+
+        .speech-button {
+            background-color: #007bff;
+            color: white;
+            border: none;
+            border-radius: 50%;
+            width: 40px;
+            height: 40px;
+            margin-right: 10px;
+            cursor: pointer;
+            transition: background-color 0.3s;
+        }
+
+        .speech-button:hover {
+            background-color: #0056b3;
+        }
+
+        .speech-button.listening {
+            background-color: #dc3545;
+            animation: pulse 1.5s infinite;
+        }
+
+        @keyframes pulse {
+            0% { transform: scale(1); }
+            50% { transform: scale(1.1); }
+            100% { transform: scale(1); }
+        }
     </style>
 </head>
 <body>
@@ -253,6 +280,9 @@
                     </div>
                     <div class="card-footer">
                         <div class="input-group">
+                            <button id="speechButton" class="speech-button">
+                                <i class="fas fa-microphone"></i>
+                            </button>
                             <input type="text" class="form-control" id="userMessage" placeholder="{{ gettext('Type your health question...') }}">
                             <button class="btn btn-primary" id="sendMessage">
                                 <i class="fas fa-paper-plane"></i>
@@ -325,6 +355,84 @@
                 }
             })
             .catch(error => console.error('Error loading stats:', error));
+
+        // Speech Recognition Setup with better browser compatibility
+        try {
+            // Check for browser support and get the correct Speech Recognition API
+            const SpeechRecognitionAPI = window.SpeechRecognition || 
+                                       window.webkitSpeechRecognition || 
+                                       window.mozSpeechRecognition || 
+                                       window.msSpeechRecognition;
+            
+            if (!SpeechRecognitionAPI) {
+                throw new Error('Speech recognition not supported in this browser');
+            }
+
+            const recognition = new SpeechRecognitionAPI();
+            const speechButton = document.getElementById('speechButton');
+            const statusIndicator = document.getElementById('statusIndicator');
+            let isListening = false;
+
+            // Configure recognition
+            recognition.continuous = false;
+            recognition.interimResults = true;
+            recognition.lang = 'en-US';
+
+            // Event Listeners
+            speechButton.addEventListener('click', () => {
+                if (!isListening) {
+                    try {
+                        recognition.start();
+                        isListening = true;
+                        speechButton.classList.add('listening');
+                        updateStatus('Listening...');
+                    } catch (error) {
+                        console.error('Speech recognition error:', error);
+                        updateStatus('Error: Could not start speech recognition');
+                    }
+                } else {
+                    recognition.stop();
+                }
+            });
+
+            recognition.onresult = (event) => {
+                const transcript = Array.from(event.results)
+                    .map(result => result[0].transcript)
+                    .join('');
+                
+                document.getElementById('userMessage').value = transcript;
+                updateStatus('Speech recognized!');
+            };
+
+            recognition.onerror = (event) => {
+                console.error('Speech recognition error:', event.error);
+                updateStatus(`Error: ${event.error}`);
+                isListening = false;
+                speechButton.classList.remove('listening');
+            };
+
+            recognition.onend = () => {
+                isListening = false;
+                speechButton.classList.remove('listening');
+                updateStatus('Ready');
+            };
+
+            // Helper function to update status
+            function updateStatus(message) {
+                if (statusIndicator) {
+                    statusIndicator.textContent = message;
+                }
+            }
+
+        } catch (error) {
+            console.error('Speech recognition setup failed:', error);
+            // Disable speech button if not supported
+            const speechButton = document.getElementById('speechButton');
+            if (speechButton) {
+                speechButton.style.display = 'none';
+                console.log('Speech recognition not available - hiding button');
+            }
+        }
 
         // Chat functionality
         const chatMessages = document.getElementById('chatMessages');
