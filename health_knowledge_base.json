@@ -1,0 +1,114 @@
+{
+  "diseases": {
+    "fever": {
+      "symptoms": ["high temperature", "chills", "headache", "body ache", "weakness", "sweating"],
+      "prevention": ["drink plenty of fluids", "rest well", "maintain hygiene", "eat nutritious food"],
+      "when_to_seek_help": ["fever above 103°F", "difficulty breathing", "persistent vomiting", "severe headache"],
+      "description": "Fever is a temporary increase in body temperature, often due to an infection."
+    },
+    "cold_flu": {
+      "symptoms": ["runny nose", "cough", "sneezing", "sore throat", "congestion", "mild fever"],
+      "prevention": ["wash hands frequently", "avoid close contact with sick people", "cover mouth when coughing", "stay hydrated"],
+      "when_to_seek_help": ["high fever", "difficulty breathing", "chest pain", "symptoms worsen after a week"],
+      "description": "Common cold and flu are viral respiratory infections."
+    },
+    "diarrhea": {
+      "symptoms": ["loose watery stools", "stomach cramps", "nausea", "fever", "dehydration"],
+      "prevention": ["drink clean water", "eat properly cooked food", "wash hands before eating", "maintain sanitation"],
+      "when_to_seek_help": ["blood in stool", "high fever", "severe dehydration", "persistent for more than 3 days"],
+      "description": "Diarrhea is frequent loose or watery bowel movements."
+    },
+    "diabetes": {
+      "symptoms": ["increased thirst", "frequent urination", "extreme hunger", "unexplained weight loss", "fatigue", "blurred vision"],
+      "prevention": ["maintain healthy weight", "exercise regularly", "eat balanced diet", "limit sugar intake", "regular health checkups"],
+      "when_to_seek_help": ["blood sugar consistently high", "symptoms of ketoacidosis", "wounds that don't heal"],
+      "description": "Diabetes is a condition where blood sugar levels are too high."
+    },
+    "hypertension": {
+      "symptoms": ["headaches", "dizziness", "chest pain", "shortness of breath", "nosebleeds"],
+      "prevention": ["reduce salt intake", "exercise regularly", "maintain healthy weight", "limit alcohol", "manage stress"],
+      "when_to_seek_help": ["severe headache", "chest pain", "difficulty breathing", "vision problems"],
+      "description": "High blood pressure puts extra strain on blood vessels and organs."
+    },
+    "malaria": {
+      "symptoms": ["high fever", "chills", "headache", "nausea", "vomiting", "muscle pain"],
+      "prevention": ["use mosquito nets", "apply insect repellent", "wear long sleeves", "eliminate standing water"],
+      "when_to_seek_help": ["high fever with chills", "severe headache", "vomiting", "any suspected malaria symptoms"],
+      "description": "Malaria is a mosquito-borne infectious disease."
+    }
+  },
+  "preventive_health": {
+    "general_hygiene": {
+      "practices": [
+        "Wash hands with soap for 20 seconds",
+        "Brush teeth twice daily",
+        "Take regular baths",
+        "Keep nails clean and trimmed",
+        "Wear clean clothes"
+      ]
+    },
+    "nutrition": {
+      "guidelines": [
+        "Eat 5 servings of fruits and vegetables daily",
+        "Include whole grains in diet",
+        "Limit processed foods",
+        "Drink 8-10 glasses of water daily",
+        "Reduce salt and sugar intake"
+      ]
+    },
+    "exercise": {
+      "recommendations": [
+        "30 minutes of physical activity daily",
+        "Include walking, cycling, or swimming",
+        "Do strength training twice a week",
+        "Practice stretching exercises",
+        "Take stairs instead of elevators"
+      ]
+    },
+    "mental_health": {
+      "tips": [
+        "Get 7-9 hours of sleep daily",
+        "Practice meditation or deep breathing",
+        "Stay connected with family and friends",
+        "Engage in hobbies",
+        "Seek help when feeling overwhelmed"
+      ]
+    }
+  },
+  "vaccination_schedules": {
+    "children": {
+      "birth": ["BCG", "Hepatitis B", "OPV-0"],
+      "6_weeks": ["DPT-1", "OPV-1", "Hepatitis B-2", "Hib-1", "Rotavirus-1", "PCV-1"],
+      "10_weeks": ["DPT-2", "OPV-2", "Hib-2", "Rotavirus-2", "PCV-2"],
+      "14_weeks": ["DPT-3", "OPV-3", "Hib-3", "Rotavirus-3", "PCV-3", "IPV-1"],
+      "9_months": ["Measles-1", "JE-1"],
+      "12_months": ["Hepatitis A-1"],
+      "15_months": ["MMR-1", "Varicella-1", "PCV Booster"],
+      "18_months": ["DPT Booster", "OPV Booster", "Hepatitis A-2"],
+      "2_years": ["Typhoid"],
+      "4_6_years": ["DPT-2 Booster", "OPV-2 Booster", "MMR-2", "Varicella-2"]
+    },
+    "adults": {
+      "annual": ["Influenza"],
+      "every_10_years": ["Tetanus"],
+      "one_time": ["Hepatitis B series", "MMR (if not vaccinated as child)"],
+      "special_groups": {
+        "pregnant_women": ["Tdap", "Influenza"],
+        "elderly": ["Pneumococcal", "Shingles"],
+        "travelers": ["Yellow fever", "Japanese Encephalitis", "Typhoid"]
+      }
+    }
+  },
+  "emergency_contacts": {
+    "national_helplines": {
+      "ambulance": "108",
+      "medical_emergency": "102",
+      "poison_control": "1800-11-0085"
+    },
+    "disease_specific": {
+      "covid_helpline": "1075",
+      "mental_health": "1800-599-0019",
+      "aids_helpline": "1097"
+    }
+  }
+}

@@ -1,0 +1,379 @@
+<!DOCTYPE html>
+<html lang="{{ get_locale() }}">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>{{ gettext('AI-Powered Healthcare Chatbot') }}</title>
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/bootstrap/5.1.3/css/bootstrap.min.css" rel="stylesheet">
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css" rel="stylesheet">
+    <style>
+        .hero-section {
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            color: white;
+            padding: 100px 0;
+        }
+        
+        .feature-card {
+            transition: transform 0.3s ease;
+            border: none;
+            box-shadow: 0 5px 15px rgba(0,0,0,0.1);
+        }
+        
+        .feature-card:hover {
+            transform: translateY(-5px);
+        }
+        
+        .chatbot-test {
+            background-color: #f8f9fa;
+            padding: 50px 0;
+        }
+        
+        .chat-container {
+            max-width: 600px;
+            margin: 0 auto;
+        }
+        
+        .chat-message {
+            margin-bottom: 15px;
+            padding: 10px 15px;
+            border-radius: 20px;
+            max-width: 80%;
+        }
+        
+        .user-message {
+            background-color: #007bff;
+            color: white;
+            margin-left: auto;
+        }
+        
+        .bot-message {
+            background-color: #e9ecef;
+            color: #333;
+        }
+        
+        .stats-section {
+            background-color: #2c3e50;
+            color: white;
+            padding: 50px 0;
+        }
+        
+        .stat-card {
+            text-align: center;
+            padding: 20px;
+        }
+        
+        .stat-number {
+            font-size: 2.5rem;
+            font-weight: bold;
+        }
+    </style>
+</head>
+<body>
+    <!-- Navigation -->
+    <nav class="navbar navbar-expand-lg navbar-dark bg-dark">
+        <div class="container">
+            <a class="navbar-brand" href="/">
+                <i class="fas fa-stethoscope me-2"></i>
+                Healthcare AI Bot
+            </a>
+            <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav">
+                <span class="navbar-toggler-icon"></span>
+            </button>
+            <div class="collapse navbar-collapse" id="navbarNav">
+                <ul class="navbar-nav ms-auto">
+                    <li class="nav-item">
+                        <a class="nav-link" href="#features">{{ gettext('Features') }}</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="#test">{{ gettext('Test Bot') }}</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="/dashboard">{{ gettext('Dashboard') }}</a>
+                    </li>
+                    <li class="nav-item dropdown">
+                        <a class="nav-link dropdown-toggle" href="#" id="languageDropdown" role="button" data-bs-toggle="dropdown" aria-expanded="false">
+                            <i class="fas fa-globe me-1"></i>{{ get_locale().upper() }}
+                        </a>
+                        <ul class="dropdown-menu" aria-labelledby="languageDropdown">
+                            {% for code, name in config.SUPPORTED_LANGUAGES.items() %}
+                            <li><a class="dropdown-item" href="{{ url_for('set_language', language=code) }}">{{ gettext(name) }}</a></li>
+                            {% endfor %}
+                        </ul>
+                    </li>
+                </ul>
+            </div>
+        </div>
+    </nav>
+
+    <!-- Hero Section -->
+    <section class="hero-section text-center">
+        <div class="container">
+            <div class="row">
+                <div class="col-lg-8 mx-auto">
+                    <h1 class="display-4 mb-4">
+                        <i class="fas fa-robot me-3"></i>
+                        {{ gettext('AI-Powered Healthcare Assistant') }}
+                    </h1>
+                    <p class="lead mb-5">
+                        {{ gettext('Accessible healthcare information in your local language through WhatsApp and SMS. Get instant guidance on symptoms, prevention, and vaccination schedules.') }}
+                    </p>
+                    <div class="row justify-content-center">
+                        <div class="col-md-6">
+                            <div class="card bg-light text-dark">
+                                <div class="card-body">
+                                    <h5><i class="fab fa-whatsapp text-success"></i> WhatsApp</h5>
+                                    <p>{{ gettext('Send "Hello" to get started') }}</p>
+                                    <code>+14155238886</code>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="col-md-6">
+                            <div class="card bg-light text-dark">
+                                <div class="card-body">
+                                    <h5><i class="fas fa-sms text-primary"></i> SMS</h5>
+                                    <p>{{ gettext('Text your health questions') }}</p>
+                                    <code>+1234567890</code>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Features Section -->
+    <section id="features" class="py-5">
+        <div class="container">
+            <div class="row mb-5">
+                <div class="col-12 text-center">
+                    <h2 class="display-5 mb-4">{{ gettext('Key Features') }}</h2>
+                    <p class="lead text-muted">{{ gettext('Comprehensive healthcare assistance at your fingertips') }}</p>
+                </div>
+            </div>
+            
+            <div class="row">
+                <div class="col-lg-4 col-md-6 mb-4">
+                    <div class="card feature-card h-100">
+                        <div class="card-body text-center">
+                            <i class="fas fa-language fa-3x text-primary mb-3"></i>
+                            <h5 class="card-title">{{ gettext('Multilingual Support') }}</h5>
+                            <p class="card-text">
+                                {{ gettext('Available in Hindi, English, Bengali, Telugu, Tamil, and other regional languages') }}
+                            </p>
+                        </div>
+                    </div>
+                </div>
+                
+                <div class="col-lg-4 col-md-6 mb-4">
+                    <div class="card feature-card h-100">
+                        <div class="card-body text-center">
+                            <i class="fas fa-search fa-3x text-success mb-3"></i>
+                            <h5 class="card-title">{{ gettext('Symptom Analysis') }}</h5>
+                            <p class="card-text">
+                                {{ gettext('Intelligent symptom recognition and disease information with prevention tips') }}
+                            </p>
+                        </div>
+                    </div>
+                </div>
+                
+                <div class="col-lg-4 col-md-6 mb-4">
+                    <div class="card feature-card h-100">
+                        <div class="card-body text-center">
+                            <i class="fas fa-syringe fa-3x text-warning mb-3"></i>
+                            <h5 class="card-title">{{ gettext('Vaccination Reminders') }}</h5>
+                            <p class="card-text">
+                                {{ gettext('Personalized vaccination schedules and automated reminders for all age groups') }}
+                            </p>
+                        </div>
+                    </div>
+                </div>
+                
+                <div class="col-lg-4 col-md-6 mb-4">
+                    <div class="card feature-card h-100">
+                        <div class="card-body text-center">
+                            <i class="fas fa-shield-alt fa-3x text-info mb-3"></i>
+                            <h5 class="card-title">{{ gettext('Prevention Tips') }}</h5>
+                            <p class="card-text">
+                                {{ gettext('Evidence-based preventive health guidance for nutrition, exercise, and hygiene') }}
+                            </p>
+                        </div>
+                    </div>
+                </div>
+                
+                <div class="col-lg-4 col-md-6 mb-4">
+                    <div class="card feature-card h-100">
+                        <div class="card-body text-center">
+                            <i class="fas fa-exclamation-triangle fa-3x text-danger mb-3"></i>
+                            <h5 class="card-title">{{ gettext('Emergency Contacts') }}</h5>
+                            <p class="card-text">
+                                {{ gettext('Quick access to emergency numbers and health helplines') }}
+                            </p>
+                        </div>
+                    </div>
+                </div>
+                
+                <div class="col-lg-4 col-md-6 mb-4">
+                    <div class="card feature-card h-100">
+                        <div class="card-body text-center">
+                            <i class="fas fa-broadcast-tower fa-3x text-secondary mb-3"></i>
+                            <h5 class="card-title">{{ gettext('Outbreak Alerts') }}</h5>
+                            <p class="card-text">
+                                {{ gettext('Real-time disease outbreak notifications and health advisories') }}
+                            </p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Test Chatbot Section -->
+    <section id="test" class="chatbot-test">
+        <div class="container">
+            <div class="row">
+                <div class="col-12 text-center mb-5">
+                    <h2 class="display-5">{{ gettext('Test the Chatbot') }}</h2>
+                    <p class="lead text-muted">{{ gettext('Try asking health-related questions below') }}</p>
+                </div>
+            </div>
+            
+            <div class="chat-container">
+                <div class="card">
+                    <div class="card-header bg-primary text-white">
+                        <h5 class="mb-0">
+                            <i class="fas fa-robot me-2"></i>
+                            {{ gettext('Healthcare Assistant') }}
+                        </h5>
+                    </div>
+                    <div class="card-body" id="chatMessages" style="height: 400px; overflow-y: auto;">
+                        <div class="chat-message bot-message">
+                            {{ gettext('Hello! I\'m your healthcare assistant. I can help you with symptoms, prevention tips, vaccination schedules, and emergency contacts. What would you like to know?') }}
+                        </div>
+                    </div>
+                    <div class="card-footer">
+                        <div class="input-group">
+                            <input type="text" class="form-control" id="userMessage" placeholder="{{ gettext('Type your health question...') }}">
+                            <button class="btn btn-primary" id="sendMessage">
+                                <i class="fas fa-paper-plane"></i>
+                            </button>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Stats Section -->
+    <section class="stats-section">
+        <div class="container">
+            <div class="row">
+                <div class="col-lg-3 col-md-6">
+                    <div class="stat-card">
+                        <div class="stat-number" id="totalUsers">-</div>
+                        <div class="stat-label">{{ gettext('Total Users') }}</div>
+                    </div>
+                </div>
+                <div class="col-lg-3 col-md-6">
+                    <div class="stat-card">
+                        <div class="stat-number" id="totalMessages">-</div>
+                        <div class="stat-label">{{ gettext('Messages Processed') }}</div>
+                    </div>
+                </div>
+                <div class="col-lg-3 col-md-6">
+                    <div class="stat-card">
+                        <div class="stat-number">10+</div>
+                        <div class="stat-label">{{ gettext('Supported Languages') }}</div>
+                    </div>
+                </div>
+                <div class="col-lg-3 col-md-6">
+                    <div class="stat-card">
+                        <div class="stat-number">24/7</div>
+                        <div class="stat-label">{{ gettext('Availability') }}</div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer class="bg-dark text-white py-4">
+        <div class="container">
+            <div class="row">
+                <div class="col-lg-6">
+                    <h5>{{ gettext('AI Healthcare Chatbot') }}</h5>
+                    <p class="text-muted">{{ gettext('Making healthcare information accessible to all.') }}</p>
+                </div>
+                <div class="col-lg-6 text-end">
+                    <p class="text-muted">
+                        {{ gettext('Built with') }} <i class="fas fa-heart text-danger"></i> {{ gettext('for rural healthcare') }}
+                    </p>
+                </div>
+            </div>
+        </div>
+    </footer>
+
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/bootstrap/5.1.3/js/bootstrap.bundle.min.js"></script>
+    <script>
+        // Load statistics
+        fetch('/api/statistics')
+            .then(response => response.json())
+            .then(data => {
+                if (data.totals) {
+                    document.getElementById('totalUsers').textContent = data.totals.total_users || 0;
+                    document.getElementById('totalMessages').textContent = data.totals.total_messages || 0;
+                }
+            })
+            .catch(error => console.error('Error loading stats:', error));
+
+        // Chat functionality
+        const chatMessages = document.getElementById('chatMessages');
+        const userMessageInput = document.getElementById('userMessage');
+        const sendButton = document.getElementById('sendMessage');
+
+        function addMessage(message, isUser = false) {
+            const messageDiv = document.createElement('div');
+            messageDiv.className = `chat-message ${isUser ? 'user-message' : 'bot-message'}`;
+            messageDiv.textContent = message;
+            chatMessages.appendChild(messageDiv);
+            chatMessages.scrollTop = chatMessages.scrollHeight;
+        }
+
+        function sendMessage() {
+            const message = userMessageInput.value.trim();
+            if (!message) return;
+
+            addMessage(message, true);
+            userMessageInput.value = '';
+            sendButton.disabled = true;
+
+            fetch('/api/test-chatbot', {
+                method: 'POST',
+                headers: {
+                    'Content-Type': 'application/json'
+                },
+                body: JSON.stringify({
+                    message: message,
+                    language: '{{ get_locale() }}'
+                })
+            })
+            .then(response => response.json())
+            .then(data => {
+                addMessage(data.response || 'Sorry, I encountered an error.');
+                sendButton.disabled = false;
+            })
+            .catch(error => {
+                addMessage('Sorry, I encountered an error. Please try again.');
+                sendButton.disabled = false;
+            });
+        }
+
+        sendButton.addEventListener('click', sendMessage);
+        userMessageInput.addEventListener('keypress', function(e) {
+            if (e.key === 'Enter') {
+                sendMessage();
+            }
+        });
+    </script>
+</body>
+</html>

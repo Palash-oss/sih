@@ -1,0 +1,365 @@
+# Healthcare Chatbot Translation Template
+# Copyright (C) 2024 Healthcare AI Bot
+# This file is distributed under the same license as the Healthcare AI Bot project.
+# FIRST AUTHOR <email@example.com>, 2024.
+#
+msgid ""
+msgstr ""
+"Project-Id-Version: Healthcare AI Bot 1.0\n"
+"Report-Msgid-Bugs-To: EMAIL@ADDRESS\n"
+"POT-Creation-Date: 2024-01-01 12:00+0000\n"
+"PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
+"Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
+"Language-Team: LANGUAGE <LL@li.org>\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=utf-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"Generated-By: Babel 2.12.1\n"
+
+# Navigation
+msgid "Features"
+msgstr ""
+
+msgid "Test Bot"
+msgstr ""
+
+msgid "Dashboard"
+msgstr ""
+
+# Hero Section
+msgid "AI-Powered Healthcare Assistant"
+msgstr ""
+
+msgid "Accessible healthcare information in your local language through WhatsApp and SMS. Get instant guidance on symptoms, prevention, and vaccination schedules."
+msgstr ""
+
+msgid "Send \"Hello\" to get started"
+msgstr ""
+
+msgid "Text your health questions"
+msgstr ""
+
+# Features Section
+msgid "Key Features"
+msgstr ""
+
+msgid "Comprehensive healthcare assistance at your fingertips"
+msgstr ""
+
+msgid "Multilingual Support"
+msgstr ""
+
+msgid "Available in Hindi, English, Bengali, Telugu, Tamil, and other regional languages"
+msgstr ""
+
+msgid "Symptom Analysis"
+msgstr ""
+
+msgid "Intelligent symptom recognition and disease information with prevention tips"
+msgstr ""
+
+msgid "Vaccination Reminders"
+msgstr ""
+
+msgid "Personalized vaccination schedules and automated reminders for all age groups"
+msgstr ""
+
+msgid "Prevention Tips"
+msgstr ""
+
+msgid "Evidence-based preventive health guidance for nutrition, exercise, and hygiene"
+msgstr ""
+
+msgid "Emergency Contacts"
+msgstr ""
+
+msgid "Quick access to emergency numbers and health helplines"
+msgstr ""
+
+msgid "Outbreak Alerts"
+msgstr ""
+
+msgid "Real-time disease outbreak notifications and health advisories"
+msgstr ""
+
+# Test Chatbot Section
+msgid "Test the Chatbot"
+msgstr ""
+
+msgid "Try asking health-related questions below"
+msgstr ""
+
+msgid "Healthcare Assistant"
+msgstr ""
+
+msgid "Hello! I'm your healthcare assistant. I can help you with symptoms, prevention tips, vaccination schedules, and emergency contacts. What would you like to know?"
+msgstr ""
+
+msgid "Type your health question..."
+msgstr ""
+
+# Stats Section
+msgid "Total Users"
+msgstr ""
+
+msgid "Messages Processed"
+msgstr ""
+
+msgid "Supported Languages"
+msgstr ""
+
+msgid "Availability"
+msgstr ""
+
+# Footer
+msgid "AI Healthcare Chatbot"
+msgstr ""
+
+msgid "Making healthcare information accessible to all."
+msgstr ""
+
+msgid "Built with"
+msgstr ""
+
+msgid "for rural healthcare"
+msgstr ""
+
+# Dashboard
+msgid "Admin Dashboard"
+msgstr ""
+
+msgid "Overview"
+msgstr ""
+
+msgid "Users"
+msgstr ""
+
+msgid "Messages"
+msgstr ""
+
+msgid "Outbreak Alerts"
+msgstr ""
+
+msgid "Vaccination Reminders"
+msgstr ""
+
+msgid "Back to Home"
+msgstr ""
+
+msgid "Dashboard Overview"
+msgstr ""
+
+msgid "Monitor your healthcare chatbot's performance and usage statistics"
+msgstr ""
+
+msgid "Total Users"
+msgstr ""
+
+msgid "Messages Today"
+msgstr ""
+
+msgid "Symptom Queries"
+msgstr ""
+
+msgid "Vaccination Queries"
+msgstr ""
+
+msgid "Message Volume Over Time"
+msgstr ""
+
+msgid "Query Types"
+msgstr ""
+
+msgid "User Management"
+msgstr ""
+
+msgid "View and manage registered users"
+msgstr ""
+
+msgid "Recent Messages"
+msgstr ""
+
+msgid "Monitor chatbot conversations"
+msgstr ""
+
+msgid "Manage disease outbreak notifications"
+msgstr ""
+
+msgid "Create Alert"
+msgstr ""
+
+msgid "Monitor vaccination reminder system"
+msgstr ""
+
+msgid "Pending Reminders"
+msgstr ""
+
+msgid "Sent Today"
+msgstr ""
+
+msgid "Overdue"
+msgstr ""
+
+msgid "Create Outbreak Alert"
+msgstr ""
+
+msgid "Disease Name"
+msgstr ""
+
+msgid "Alert Message"
+msgstr ""
+
+msgid "Severity Level"
+msgstr ""
+
+msgid "Low"
+msgstr ""
+
+msgid "Medium"
+msgstr ""
+
+msgid "High"
+msgstr ""
+
+msgid "Critical"
+msgstr ""
+
+msgid "Affected Locations"
+msgstr ""
+
+msgid "Enter locations separated by commas"
+msgstr ""
+
+msgid "Cancel"
+msgstr ""
+
+msgid "Create Alert"
+msgstr ""
+
+# Language Names
+msgid "English"
+msgstr ""
+
+msgid "Hindi"
+msgstr ""
+
+msgid "Bengali"
+msgstr ""
+
+msgid "Telugu"
+msgstr ""
+
+msgid "Tamil"
+msgstr ""
+
+msgid "Gujarati"
+msgstr ""
+
+msgid "Kannada"
+msgstr ""
+
+msgid "Malayalam"
+msgstr ""
+
+msgid "Punjabi"
+msgstr ""
+
+msgid "Marathi"
+msgstr ""
+
+# Table Headers
+msgid "ID"
+msgstr ""
+
+msgid "Phone Number"
+msgstr ""
+
+msgid "Name"
+msgstr ""
+
+msgid "Language"
+msgstr ""
+
+msgid "Location"
+msgstr ""
+
+msgid "Joined"
+msgstr ""
+
+msgid "Time"
+msgstr ""
+
+msgid "User"
+msgstr ""
+
+msgid "Type"
+msgstr ""
+
+msgid "Message"
+msgstr ""
+
+msgid "Disease"
+msgstr ""
+
+msgid "Message"
+msgstr ""
+
+msgid "Severity"
+msgstr ""
+
+msgid "Status"
+msgstr ""
+
+msgid "Created"
+msgstr ""
+
+msgid "Actions"
+msgstr ""
+
+msgid "View"
+msgstr ""
+
+msgid "Loading users..."
+msgstr ""
+
+msgid "No users found"
+msgstr ""
+
+msgid "Loading messages..."
+msgstr ""
+
+msgid "No messages found"
+msgstr ""
+
+msgid "Loading alerts..."
+msgstr ""
+
+msgid "No alerts found"
+msgstr ""
+
+msgid "Active"
+msgstr ""
+
+msgid "Inactive"
+msgstr ""
+
+msgid "SMS"
+msgstr ""
+
+msgid "WhatsApp"
+msgstr ""
+
+msgid "Symptoms"
+msgstr ""
+
+msgid "Vaccination"
+msgstr ""
+
+msgid "Prevention"
+msgstr ""
+
+msgid "Emergency"
+msgstr ""
+
+msgid "N/A"
+msgstr ""
