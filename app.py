@@ -1,4 +1,6 @@
 from flask import Flask, request, jsonify, render_template, session, redirect, url_for
+from services.image_diagnosis_service import mock_image_classifier
+from services.response_formatter import ResponseFormatter
 from flask_cors import CORS
 from flask_babel import Babel, gettext, ngettext, get_locale
 from twilio.rest import Client
@@ -284,10 +286,15 @@ def whatsapp_webhook():
         detected_lang = health_bot.detect_language(message_body)
         
         # Get response from chatbot
-        response = health_bot.get_contextual_response(
+        raw_response = health_bot.get_contextual_response(
             message_body, 
             {'language': user.language or detected_lang}
         )
+        
+        # For WhatsApp, we'll use the raw response as HTML isn't supported well
+        # But we'll clean it up a bit for better readability
+        response = raw_response.replace('• ', '\n• ')
+        response = response.replace('─────', '\n\n')
         
         # Save message to database
         message_record = Message(
@@ -342,10 +349,14 @@ def sms_webhook():
         detected_lang = health_bot.detect_language(message_body)
         
         # Get response from chatbot
-        response = health_bot.get_contextual_response(
+        raw_response = health_bot.get_contextual_response(
             message_body, 
             {'language': user.language or detected_lang}
         )
+        
+        # For SMS, use a simplified format for better readability
+        response = raw_response.replace('• ', '\n• ')
+        response = response.replace('─────', '\n\n')
         
         # Save message to database
         message_record = Message(
@@ -513,24 +524,51 @@ def test_chatbot():
         data = request.get_json()
         message = data.get('message', '')
         language = data.get('language', 'en')
+        response_format = data.get('format', 'html')  # Default to HTML formatted response
         
         if not message:
             return jsonify({'error': 'Message is required'}), 400
         
-        response = health_bot.get_contextual_response(
+        # Get raw response from chatbot
+        raw_response = health_bot.get_contextual_response(
             message, 
             {'language': language}
         )
         
+        # Format response for display
+        if response_format == 'html':
+            formatted_response = ResponseFormatter.format_for_html(raw_response)
+        else:
+            formatted_response = raw_response
+        
         return jsonify({
             'message': message,
-            'response': response,
+            'response': {
+                'raw': raw_response,
+                'formatted': formatted_response
+            },
             'detected_language': health_bot.detect_language(message)
         })
         
     except Exception as e:
         logger.error(f"Error testing chatbot: {str(e)}")
         return jsonify({'error': str(e)}), 500
+
+@app.route('/api/image-diagnosis', methods=['POST'])
+def image_diagnosis():
+    """
+    Accepts an image and language, returns a mock AI diagnosis.
+    Does not store the image. Ready for real model integration.
+    Now uses filename and brightness for more realistic feedback.
+    """
+    if 'image' not in request.files:
+        return jsonify({'feedback': 'No image uploaded.'}), 400
+    image = request.files['image']
+    language = request.form.get('language', 'en')
+    image_bytes = image.read()  # Do not store the image
+    filename = image.filename or ''
+    feedback = mock_image_classifier(image_bytes, language=language, filename=filename)
+    return jsonify({'feedback': feedback})
 
 if __name__ == '__main__':
     port = int(os.environ.get('PORT', Config.PORT))

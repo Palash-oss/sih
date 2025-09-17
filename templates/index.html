@@ -85,26 +85,56 @@
         .card {
             background: #fff;
             border-radius: var(--radius);
-            box-shadow: 0 2px 12px 0 rgba(62,95,68,0.07);
+            box-shadow: 0 2px 12px 0 rgba(62,95,68,0.1);
             border: none;
+            border-top: 4px solid var(--mid-green);
         }
         .chat-message {
-            margin-bottom: 12px;
-            padding: 10px 16px;
-            border-radius: 14px;
+            margin-bottom: 16px;
+            padding: 14px 18px;
+            border-radius: 18px;
             max-width: 80%;
             font-size: 1.05rem;
             font-weight: 500;
+            box-shadow: 0 2px 8px rgba(62,95,68,0.08);
         }
         .user-message {
             background: var(--light-green);
             color: var(--dark-green);
             margin-left: auto;
             text-align: right;
+            border-bottom-right-radius: 4px;
         }
         .bot-message {
-            background: var(--mint);
+            background: #fff;
             color: var(--dark-green);
+            box-shadow: 0 2px 8px rgba(62,95,68,0.08);
+            border-left: 3px solid var(--mid-green);
+            border-bottom-left-radius: 4px;
+        }
+        /* Override styles for formatted bot messages */
+        .bot-message .health-condition-card {
+            background: transparent;
+            border-left: 3px solid var(--mid-green);
+            box-shadow: none;
+            padding: 0 0 0 12px;
+            margin-bottom: 15px;
+        }
+        .bot-message .health-response-header {
+            font-size: 1.1em;
+            margin-bottom: 15px;
+            padding-bottom: 5px;
+            border-bottom: 1px solid #eee;
+        }
+        .bot-message .health-disclaimer {
+            font-size: 0.85em;
+            border-top: 1px solid #eee;
+            padding-top: 8px;
+        }
+        /* Make sure the chat is scrollable but messages fit */
+        #chatMessages {
+            padding: 20px;
+            background-color: rgba(232, 255, 215, 0.3);
         }
         .input-group .form-control {
             border-radius: 12px 0 0 12px;
@@ -113,11 +143,12 @@
             color: var(--dark-green);
             font-size: 1.08rem;
             font-weight: 500;
+            padding: 12px 16px;
         }
         .input-group .form-control:focus {
             background: #fff;
             color: var(--dark-green);
-            box-shadow: none;
+            box-shadow: 0 0 0 0.2rem rgba(147, 218, 151, 0.25);
             border-color: var(--mid-green);
         }
         .input-group .btn {
@@ -127,10 +158,12 @@
             font-weight: 700;
             font-size: 1.08rem;
             color: #fff;
-            transition: background 0.2s;
+            transition: all 0.2s ease;
+            padding: 0 20px;
         }
         .input-group .btn:hover {
             background: var(--dark-green);
+            transform: translateY(-2px);
         }
         .speech-button {
             background: var(--light-green);
@@ -356,12 +389,6 @@
             
             <div class="chat-container">
                 <div class="card">
-                    <div class="card-header bg-primary text-white">
-                        <h5 class="mb-0">
-                            <i class="fas fa-robot me-2"></i>
-                            {{ gettext('Healthcare Assistant') }}
-                        </h5>
-                    </div>
                     <div class="card-body" id="chatMessages" style="height: 400px; overflow-y: auto;">
                         <div class="chat-message bot-message">
                             {{ gettext('Hello! I\'m your healthcare assistant. I can help you with symptoms, prevention tips, vaccination schedules, and emergency contacts. What would you like to know?') }}
@@ -369,9 +396,13 @@
                     </div>
                     <div class="card-footer">
                         <div class="input-group">
-                            <button id="speechButton" class="speech-button">
+                            <button id="speechButton" class="speech-button" title="Speak">
                                 <i class="fas fa-microphone"></i>
                             </button>
+                            <label for="imageUpload" class="btn btn-outline-success mb-0" style="border-radius: 50%; width: 40px; height: 40px; display: flex; align-items: center; justify-content: center; background: var(--light-green); color: var(--dark-green); border: none; margin-right: 10px; cursor: pointer;">
+                                <i class="fas fa-camera"></i>
+                            </label>
+                            <input type="file" id="imageUpload" accept="image/*" capture="environment" style="display: none;">
                             <input type="text" class="form-control" id="userMessage" placeholder="{{ gettext('Type your health question...') }}">
                             <button class="btn btn-primary" id="sendMessage">
                                 <i class="fas fa-paper-plane"></i>
@@ -433,6 +464,32 @@
     </footer>
 
     <script src="https://cdnjs.cloudflare.com/ajax/libs/bootstrap/5.1.3/js/bootstrap.bundle.min.js"></script>
+    <script>
+        // Localized strings for JS (avoid nested quotes)
+        const AI_ANALYZING_IMAGE = "{{ gettext('Analyzing image with AI...') }}";
+        const AI_COULD_NOT_ANALYZE = "{{ gettext('Sorry, AI could not analyze the image.') }}";
+        const AI_ERROR_ANALYZING = "{{ gettext('Sorry, there was an error analyzing the image.') }}";
+    </script>
+    <!-- AI Image Diagnosis: Add a modal for image preview and feedback (optional, minimal) -->
+    <style>
+        .ai-image-msg {
+            background: var(--mint);
+            color: var(--dark-green);
+            border-left: 4px solid var(--mid-green);
+            margin-top: 8px;
+            padding: 8px 12px;
+            border-radius: 10px;
+            font-size: 0.98rem;
+            font-style: italic;
+        }
+        .chat-image-thumb {
+            max-width: 120px;
+            max-height: 120px;
+            border-radius: 10px;
+            margin-bottom: 6px;
+            border: 1px solid var(--light-green);
+        }
+    </style>
     <script>
         // Load statistics
         fetch('/api/statistics')
@@ -527,12 +584,41 @@
         const chatMessages = document.getElementById('chatMessages');
         const userMessageInput = document.getElementById('userMessage');
         const sendButton = document.getElementById('sendMessage');
+        const imageUpload = document.getElementById('imageUpload');
+        const speechButton = document.getElementById('speechButton');
 
         function addMessage(message, isUser = false) {
             const messageDiv = document.createElement('div');
             messageDiv.className = `chat-message ${isUser ? 'user-message' : 'bot-message'}`;
-            messageDiv.textContent = message;
+            
+            // If it's a user message or plain text, add as text
+            if (isUser || !message.includes('<div')) {
+                messageDiv.textContent = message;
+            } else {
+                // If it's HTML, add as HTML
+                messageDiv.innerHTML = message;
+            }
+            
             chatMessages.appendChild(messageDiv);
+            chatMessages.scrollTop = chatMessages.scrollHeight;
+        }
+
+        // Add image + AI feedback to chat
+        function addImageDiagnosis(imageUrl, aiFeedback) {
+            const wrapper = document.createElement('div');
+            wrapper.className = 'chat-message bot-message';
+            // Image
+            const img = document.createElement('img');
+            img.src = imageUrl;
+            img.className = 'chat-image-thumb';
+            img.alt = 'Uploaded image';
+            wrapper.appendChild(img);
+            // AI feedback
+            const aiDiv = document.createElement('div');
+            aiDiv.className = 'ai-image-msg';
+            aiDiv.textContent = aiFeedback;
+            wrapper.appendChild(aiDiv);
+            chatMessages.appendChild(wrapper);
             chatMessages.scrollTop = chatMessages.scrollHeight;
         }
 
@@ -551,12 +637,17 @@
                 },
                 body: JSON.stringify({
                     message: message,
-                    language: '{{ get_locale() }}'
+                    language: '{{ get_locale() }}',
+                    format: 'html'
                 })
             })
             .then(response => response.json())
             .then(data => {
-                addMessage(data.response || 'Sorry, I encountered an error.');
+                if (data.response && data.response.formatted) {
+                    addMessage(data.response.formatted);
+                } else {
+                    addMessage(data.response?.raw || 'Sorry, I encountered an error.');
+                }
                 sendButton.disabled = false;
             })
             .catch(error => {
@@ -570,6 +661,50 @@
             if (e.key === 'Enter') {
                 sendMessage();
             }
+        });
+
+        // Image upload handler
+        imageUpload.addEventListener('change', function(e) {
+            const file = e.target.files[0];
+            if (!file) return;
+
+            // Show image in chat as preview (optional)
+            const reader = new FileReader();
+            reader.onload = function(ev) {
+                // Add a placeholder message while waiting for AI
+                addImageDiagnosis(ev.target.result, AI_ANALYZING_IMAGE);
+            };
+            reader.readAsDataURL(file);
+
+            // Prepare form data
+            const formData = new FormData();
+            formData.append('image', file);
+            formData.append('language', '{{ get_locale() }}');
+
+            // Send to backend
+            fetch('/api/image-diagnosis', {
+                method: 'POST',
+                body: formData
+            })
+            .then(response => response.json())
+            .then(data => {
+                // Remove the last placeholder message
+                const lastMsg = chatMessages.lastElementChild;
+                if (lastMsg && lastMsg.querySelector('.ai-image-msg')) {
+                    chatMessages.removeChild(lastMsg);
+                }
+                // Add the image and AI feedback
+                const url = URL.createObjectURL(file);
+                addImageDiagnosis(url, data.feedback || AI_COULD_NOT_ANALYZE);
+            })
+            .catch(error => {
+                // Remove the last placeholder message
+                const lastMsg = chatMessages.lastElementChild;
+                if (lastMsg && lastMsg.querySelector('.ai-image-msg')) {
+                    chatMessages.removeChild(lastMsg);
+                }
+                addMessage(AI_ERROR_ANALYZING);
+            });
         });
     </script>
 </body>
