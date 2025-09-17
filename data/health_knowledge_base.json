@@ -1,114 +1,907 @@
 {
   "diseases": {
     "fever": {
-      "symptoms": ["high temperature", "chills", "headache", "body ache", "weakness", "sweating"],
-      "prevention": ["drink plenty of fluids", "rest well", "maintain hygiene", "eat nutritious food"],
-      "when_to_seek_help": ["fever above 103°F", "difficulty breathing", "persistent vomiting", "severe headache"],
-      "description": "Fever is a temporary increase in body temperature, often due to an infection."
+      "symptoms": [
+        "elevated body temperature",
+        "chills and shivering",
+        "sweating",
+        "headache",
+        "muscle aches",
+        "loss of appetite",
+        "dehydration",
+        "general weakness",
+        "fatigue",
+        "rapid heart rate"
+      ],
+      "prevention": [
+        "maintain good hygiene practices",
+        "drink plenty of fluids (water, clear broths, or other clear fluids)",
+        "rest adequately to support recovery",
+        "eat light, nutritious foods",
+        "take lukewarm baths or use cold compresses",
+        "ensure proper ventilation in living spaces",
+        "avoid excessive bundling when temperature is high"
+      ],
+      "when_to_seek_help": [
+        "fever above 103°F (39.4°C)",
+        "fever lasting more than 3 days",
+        "severe headache with stiff neck",
+        "difficulty breathing or chest pain",
+        "persistent vomiting",
+        "unusual sensitivity to bright light",
+        "mental confusion or extreme irritability",
+        "seizures or convulsions",
+        "rash that doesn't fade when pressed"
+      ],
+      "description": "Fever is a temporary increase in body temperature, typically indicating that your body is fighting an infection. Normal body temperature is around 98.6°F (37°C), and fever is generally considered to be 100.4°F (38°C) or higher.",
+      "treatment_options": [
+        "over-the-counter fever reducers (acetaminophen or ibuprofen)",
+        "rest and sleep",
+        "staying hydrated",
+        "lightweight clothing and light bedding",
+        "cool environment"
+      ],
+      "risk_factors": [
+        "weak immune system",
+        "recent travel to areas with infectious diseases",
+        "close contact with sick individuals",
+        "chronic medical conditions"
+      ],
+      "complications": [
+        "dehydration",
+        "febrile seizures in young children",
+        "hallucinations",
+        "severe fatigue"
+      ]
     },
     "cold_flu": {
-      "symptoms": ["runny nose", "cough", "sneezing", "sore throat", "congestion", "mild fever"],
-      "prevention": ["wash hands frequently", "avoid close contact with sick people", "cover mouth when coughing", "stay hydrated"],
-      "when_to_seek_help": ["high fever", "difficulty breathing", "chest pain", "symptoms worsen after a week"],
-      "description": "Common cold and flu are viral respiratory infections."
+      "symptoms": [
+        "runny or stuffy nose",
+        "sore throat",
+        "cough (dry or productive)",
+        "sneezing",
+        "body aches",
+        "fatigue",
+        "mild to high fever",
+        "headache",
+        "chest discomfort",
+        "loss of appetite",
+        "chills and sweats",
+        "nasal congestion"
+      ],
+      "prevention": [
+        "wash hands frequently with soap and water",
+        "avoid touching face with unwashed hands",
+        "maintain distance from sick individuals",
+        "get annual flu vaccination",
+        "wear a mask in crowded places during flu season",
+        "maintain good ventilation in indoor spaces",
+        "exercise regularly to boost immunity",
+        "get adequate sleep",
+        "eat a balanced diet rich in vitamins C and D"
+      ],
+      "when_to_seek_help": [
+        "difficulty breathing or shortness of breath",
+        "persistent chest pain or pressure",
+        "severe muscle pain",
+        "dehydration",
+        "fever or cough that improves but then returns or worsens",
+        "worsening of chronic medical conditions",
+        "symptoms lasting more than 10 days",
+        "severe sinus pain"
+      ],
+      "description": "The common cold and flu are viral respiratory infections that affect the nose, throat, and sometimes the lungs. While they share similar symptoms, flu tends to be more severe and can lead to serious complications.",
+      "treatment_options": [
+        "rest and adequate sleep",
+        "over-the-counter pain relievers",
+        "decongestants",
+        "throat lozenges",
+        "humidifier use",
+        "antiviral medications (for flu, if prescribed)",
+        "saline nasal drops or sprays"
+      ],
+      "risk_factors": [
+        "age (very young and elderly)",
+        "weakened immune system",
+        "chronic health conditions",
+        "pregnancy",
+        "smoking",
+        "lack of sleep or high stress"
+      ],
+      "duration": {
+        "cold": "7-10 days",
+        "flu": "5-7 days, with lingering fatigue up to 2 weeks"
+      },
+      "complications": {
+        "common": [
+          "sinus infection",
+          "ear infection",
+          "bronchitis"
+        ],
+        "severe": [
+          "pneumonia",
+          "myocarditis",
+          "encephalitis",
+          "multi-organ failure"
+        ]
+      }
     },
     "diarrhea": {
-      "symptoms": ["loose watery stools", "stomach cramps", "nausea", "fever", "dehydration"],
-      "prevention": ["drink clean water", "eat properly cooked food", "wash hands before eating", "maintain sanitation"],
-      "when_to_seek_help": ["blood in stool", "high fever", "severe dehydration", "persistent for more than 3 days"],
-      "description": "Diarrhea is frequent loose or watery bowel movements."
+      "symptoms": [
+        "frequent loose or watery stools",
+        "abdominal cramps or pain",
+        "nausea and vomiting",
+        "fever",
+        "dehydration",
+        "urgent need to defecate",
+        "bloating",
+        "blood in stool (in severe cases)",
+        "mucus in stool",
+        "loss of appetite",
+        "weakness and fatigue"
+      ],
+      "prevention": [
+        "wash hands thoroughly with soap and water",
+        "drink clean, safe water",
+        "eat properly cooked and fresh foods",
+        "avoid raw or undercooked meat",
+        "refrigerate perishable foods promptly",
+        "maintain good kitchen hygiene",
+        "use separate cutting boards for raw meat and vegetables",
+        "avoid sharing personal items",
+        "practice food safety when traveling"
+      ],
+      "when_to_seek_help": [
+        "severe abdominal or rectal pain",
+        "blood in stool",
+        "black, tarry stools",
+        "fever above 102°F (39°C)",
+        "severe dehydration signs",
+        "diarrhea lasting more than 3 days",
+        "inability to keep liquids down",
+        "symptoms of severe dehydration (excessive thirst, dry mouth, little or no urination, severe weakness)",
+        "signs of infection"
+      ],
+      "description": "Diarrhea is characterized by loose, watery stools occurring more than three times in a day. It's often caused by viral infections, bacteria, parasites, or dietary issues. While usually mild and self-limiting, severe cases can lead to dangerous dehydration.",
+      "treatment_options": [
+        "oral rehydration solutions",
+        "clear fluids intake",
+        "gradual return to eating",
+        "probiotics",
+        "over-the-counter anti-diarrheal medications",
+        "BRAT diet (Bananas, Rice, Applesauce, Toast)",
+        "electrolyte replacement"
+      ],
+      "risk_factors": [
+        "recent antibiotic use",
+        "weakened immune system",
+        "travel to areas with poor sanitation",
+        "food allergies or intolerances",
+        "inflammatory bowel disease"
+      ],
+      "complications": [
+        "severe dehydration",
+        "kidney failure",
+        "malnutrition",
+        "electrolyte imbalance"
+      ],
+      "prevention_tips": {
+        "food_safety": [
+          "wash fruits and vegetables thoroughly",
+          "cook foods to proper temperatures",
+          "avoid cross-contamination",
+          "refrigerate leftovers promptly"
+        ],
+        "personal_hygiene": [
+          "regular hand washing",
+          "use of hand sanitizers when soap unavailable",
+          "proper bathroom hygiene"
+        ],
+        "travel_tips": [
+          "drink bottled water",
+          "avoid ice in drinks",
+          "eat only well-cooked foods",
+          "avoid raw vegetables and fruits unless you can peel them"
+        ]
+      }
     },
     "diabetes": {
-      "symptoms": ["increased thirst", "frequent urination", "extreme hunger", "unexplained weight loss", "fatigue", "blurred vision"],
-      "prevention": ["maintain healthy weight", "exercise regularly", "eat balanced diet", "limit sugar intake", "regular health checkups"],
-      "when_to_seek_help": ["blood sugar consistently high", "symptoms of ketoacidosis", "wounds that don't heal"],
-      "description": "Diabetes is a condition where blood sugar levels are too high."
+      "symptoms": {
+        "common": [
+          "increased thirst and urination",
+          "extreme hunger",
+          "unexplained weight loss",
+          "fatigue",
+          "blurred vision",
+          "slow-healing sores",
+          "frequent infections"
+        ],
+        "type1_specific": [
+          "rapid onset",
+          "mood changes",
+          "irritability",
+          "ketones in urine"
+        ],
+        "type2_specific": [
+          "gradual onset",
+          "numbness in hands/feet",
+          "darkened skin in certain areas",
+          "increased risk of infections"
+        ]
+      },
+      "prevention": {
+        "lifestyle_changes": [
+          "maintain a healthy weight",
+          "exercise at least 150 minutes per week",
+          "eat a balanced, low-glycemic diet",
+          "limit processed foods and sugary drinks",
+          "get regular health checkups",
+          "manage stress levels",
+          "get adequate sleep"
+        ],
+        "dietary_recommendations": [
+          "control portion sizes",
+          "choose whole grains over refined grains",
+          "include lean proteins",
+          "eat plenty of vegetables",
+          "limit alcohol consumption",
+          "monitor carbohydrate intake"
+        ]
+      },
+      "when_to_seek_help": [
+        "blood sugar readings consistently above target range",
+        "symptoms of diabetic ketoacidosis",
+        "frequent unexplained high or low blood sugar",
+        "wounds that don't heal",
+        "changes in vision",
+        "persistent infections",
+        "severe dehydration",
+        "loss of consciousness"
+      ],
+      "description": "Diabetes is a chronic metabolic disorder characterized by high blood sugar levels. It occurs either when the pancreas doesn't produce enough insulin (Type 1) or when the body becomes resistant to insulin (Type 2).",
+      "types": {
+        "type1": {
+          "description": "An autoimmune condition where the body attacks insulin-producing cells",
+          "risk_factors": [
+            "family history",
+            "certain genes",
+            "age (usually develops in children/young adults)",
+            "environmental factors"
+          ]
+        },
+        "type2": {
+          "description": "A condition where the body becomes resistant to insulin",
+          "risk_factors": [
+            "obesity",
+            "physical inactivity",
+            "family history",
+            "age over 45",
+            "certain ethnicities",
+            "gestational diabetes history"
+          ]
+        }
+      },
+      "complications": {
+        "short_term": [
+          "hypoglycemia",
+          "hyperglycemia",
+          "diabetic ketoacidosis"
+        ],
+        "long_term": [
+          "cardiovascular disease",
+          "nerve damage (neuropathy)",
+          "kidney damage (nephropathy)",
+          "eye damage (retinopathy)",
+          "foot damage",
+          "skin conditions",
+          "hearing impairment"
+        ]
+      },
+      "monitoring": {
+        "regular_tests": [
+          "daily blood glucose monitoring",
+          "A1C test every 3-6 months",
+          "annual eye exam",
+          "regular foot exams",
+          "kidney function tests",
+          "cholesterol levels"
+        ],
+        "target_ranges": {
+          "before_meals": "80-130 mg/dL",
+          "after_meals": "less than 180 mg/dL",
+          "A1C": "less than 7%"
+        }
+      }
     },
     "hypertension": {
-      "symptoms": ["headaches", "dizziness", "chest pain", "shortness of breath", "nosebleeds"],
-      "prevention": ["reduce salt intake", "exercise regularly", "maintain healthy weight", "limit alcohol", "manage stress"],
-      "when_to_seek_help": ["severe headache", "chest pain", "difficulty breathing", "vision problems"],
-      "description": "High blood pressure puts extra strain on blood vessels and organs."
+      "symptoms": {
+        "primary_symptoms": [
+          "headaches (particularly in the morning)",
+          "dizziness or vertigo",
+          "chest pain or pressure",
+          "shortness of breath",
+          "nosebleeds",
+          "facial flushing",
+          "blood spots in eyes"
+        ],
+        "severe_symptoms": [
+          "severe headache",
+          "severe anxiety",
+          "shortness of breath",
+          "nosebleeds",
+          "severe chest pain",
+          "irregular heartbeat",
+          "blood in urine"
+        ]
+      },
+      "prevention": {
+        "lifestyle_changes": [
+          "reduce sodium intake (less than 2,300mg daily)",
+          "regular physical activity (30 minutes daily)",
+          "maintain healthy weight",
+          "limit alcohol consumption",
+          "quit smoking",
+          "manage stress through relaxation techniques",
+          "get adequate sleep"
+        ],
+        "dietary_approaches": [
+          "follow DASH diet",
+          "increase potassium-rich foods",
+          "reduce caffeine intake",
+          "limit processed foods",
+          "increase fruits and vegetables",
+          "choose low-fat dairy products"
+        ]
+      },
+      "when_to_seek_help": [
+        "blood pressure readings consistently above 130/80 mmHg",
+        "severe headache with confusion",
+        "chest pain or difficulty breathing",
+        "vision problems or blurred vision",
+        "irregular heartbeat",
+        "blood in urine",
+        "dizziness or fainting"
+      ],
+      "description": "Hypertension, or high blood pressure, is a common condition where the long-term force of blood against artery walls is high enough to potentially cause health problems. It often develops over many years and can damage blood vessels and organs, particularly the heart, brain, kidneys, and eyes.",
+      "blood_pressure_categories": {
+        "normal": "Less than 120/80 mmHg",
+        "elevated": "120-129/Less than 80 mmHg",
+        "stage1": "130-139/80-89 mmHg",
+        "stage2": "140/90 mmHg or higher",
+        "crisis": "Higher than 180/120 mmHg"
+      },
+      "risk_factors": {
+        "non_modifiable": [
+          "age",
+          "family history",
+          "race/ethnicity",
+          "chronic kidney disease"
+        ],
+        "modifiable": [
+          "obesity",
+          "high sodium diet",
+          "physical inactivity",
+          "excessive alcohol",
+          "smoking",
+          "stress"
+        ]
+      },
+      "complications": [
+        "heart attack or stroke",
+        "aneurysm",
+        "heart failure",
+        "weakened blood vessels in kidneys",
+        "thickened blood vessels in eyes",
+        "metabolic syndrome",
+        "dementia"
+      ],
+      "monitoring": {
+        "home_monitoring": [
+          "measure at same time daily",
+          "avoid caffeine 30 minutes before",
+          "empty bladder first",
+          "sit correctly during measurement",
+          "take multiple readings"
+        ],
+        "frequency": {
+          "normal": "once a year",
+          "elevated": "every 3-6 months",
+          "high": "as recommended by healthcare provider"
+        }
+      }
     },
     "malaria": {
-      "symptoms": ["high fever", "chills", "headache", "nausea", "vomiting", "muscle pain"],
-      "prevention": ["use mosquito nets", "apply insect repellent", "wear long sleeves", "eliminate standing water"],
-      "when_to_seek_help": ["high fever with chills", "severe headache", "vomiting", "any suspected malaria symptoms"],
-      "description": "Malaria is a mosquito-borne infectious disease."
+      "symptoms": {
+        "early_symptoms": [
+          "fever",
+          "chills",
+          "headache",
+          "sweats",
+          "fatigue",
+          "nausea",
+          "vomiting"
+        ],
+        "severe_symptoms": [
+          "severe anemia",
+          "cerebral malaria",
+          "organ failure",
+          "breathing problems",
+          "low blood sugar",
+          "acute kidney injury"
+        ],
+        "common_patterns": {
+          "timing": "Symptoms typically appear 10-15 days after infection",
+          "cycles": "Fever cycles every 24-48 hours depending on species"
+        }
+      },
+      "prevention": {
+        "personal_protection": [
+          "use long-lasting insecticidal nets (LLINs)",
+          "apply EPA-registered insect repellent",
+          "wear long sleeves and pants",
+          "stay in screened or air-conditioned rooms"
+        ],
+        "environmental_control": [
+          "eliminate standing water sources",
+          "use indoor residual spraying",
+          "maintain screens on windows and doors",
+          "clear vegetation near living areas"
+        ],
+        "medication": [
+          "antimalarial drugs when traveling",
+          "complete full course of preventive medication",
+          "start medication before entering malaria-risk areas"
+        ]
+      },
+      "when_to_seek_help": [
+        "fever with chills in malaria-prone areas",
+        "symptoms within 1 year of travel to endemic area",
+        "severe headache with fever",
+        "confusion or difficulty speaking",
+        "seizures",
+        "difficulty breathing",
+        "severe weakness or inability to sit/stand"
+      ],
+      "description": "Malaria is a life-threatening disease caused by parasites transmitted through the bites of infected female Anopheles mosquitoes. The severity of malaria varies based on the species of plasmodium causing the infection.",
+      "transmission": {
+        "primary_vector": "Female Anopheles mosquito",
+        "risk_factors": [
+          "living in or visiting endemic areas",
+          "poverty",
+          "lack of knowledge",
+          "limited access to healthcare",
+          "resistance to antimalarial drugs"
+        ],
+        "high_risk_groups": [
+          "young children",
+          "pregnant women",
+          "non-immune travelers",
+          "people with HIV/AIDS"
+        ]
+      },
+      "diagnosis": {
+        "methods": [
+          "microscopy blood tests",
+          "rapid diagnostic tests (RDTs)",
+          "molecular testing",
+          "serology"
+        ],
+        "important_factors": [
+          "travel history",
+          "symptoms onset timing",
+          "previous malaria episodes",
+          "prevention measures used"
+        ]
+      },
+      "treatment": {
+        "principles": [
+          "early diagnosis and prompt treatment",
+          "appropriate antimalarial combination therapy",
+          "supportive care",
+          "monitoring for complications"
+        ],
+        "medications": {
+          "uncomplicated": [
+            "artemisinin-based combination therapy (ACT)",
+            "chloroquine (in sensitive areas)",
+            "atovaquone-proguanil"
+          ],
+          "severe": [
+            "intravenous artesunate",
+            "intensive care support",
+            "treatment of complications"
+          ]
+        }
+      },
+      "complications": [
+        "cerebral malaria",
+        "severe anemia",
+        "acute respiratory distress syndrome",
+        "organ failure",
+        "low blood sugar",
+        "acute kidney injury",
+        "shock"
+      ]
     }
   },
   "preventive_health": {
     "general_hygiene": {
-      "practices": [
-        "Wash hands with soap for 20 seconds",
-        "Brush teeth twice daily",
-        "Take regular baths",
-        "Keep nails clean and trimmed",
-        "Wear clean clothes"
+      "daily_practices": [
+        "Wash hands with soap for at least 20 seconds, especially before meals and after bathroom use",
+        "Brush teeth twice daily and floss once daily",
+        "Take regular baths or showers",
+        "Keep nails clean and properly trimmed",
+        "Wear clean clothes and change them daily",
+        "Use tissue or elbow when coughing or sneezing",
+        "Clean and disinfect frequently touched surfaces"
+      ],
+      "personal_care": [
+        "Regular dental check-ups every 6 months",
+        "Change toothbrush every 3-4 months",
+        "Use mild soap and clean towels",
+        "Keep personal items separate",
+        "Maintain clean and dry feet"
+      ],
+      "home_hygiene": [
+        "Regular cleaning and disinfection of bathroom and kitchen",
+        "Proper waste disposal",
+        "Good ventilation in living spaces",
+        "Regular washing of bedding and towels",
+        "Pet hygiene if applicable"
       ]
     },
     "nutrition": {
-      "guidelines": [
-        "Eat 5 servings of fruits and vegetables daily",
-        "Include whole grains in diet",
-        "Limit processed foods",
+      "dietary_guidelines": [
+        "Eat at least 5 servings of various fruits and vegetables daily",
+        "Choose whole grains over refined grains",
+        "Include lean proteins (fish, poultry, legumes)",
+        "Limit processed foods and added sugars",
+        "Reduce sodium intake to less than 2300mg daily",
         "Drink 8-10 glasses of water daily",
-        "Reduce salt and sugar intake"
+        "Include healthy fats from nuts, seeds, and olive oil"
+      ],
+      "meal_planning": [
+        "Plan balanced meals with all food groups",
+        "Control portion sizes",
+        "Eat regular meals at consistent times",
+        "Prepare more meals at home",
+        "Read nutrition labels carefully"
+      ],
+      "specific_nutrients": {
+        "proteins": "0.8g per kg of body weight daily",
+        "fiber": "25-30g daily",
+        "calcium": "1000-1200mg daily",
+        "iron": "18mg daily (women), 8mg daily (men)",
+        "vitamin_D": "600-800 IU daily"
+      },
+      "foods_to_limit": [
+        "Processed meats",
+        "Sugary beverages",
+        "Trans fats",
+        "Excessive alcohol",
+        "High-sodium foods"
       ]
     },
     "exercise": {
-      "recommendations": [
-        "30 minutes of physical activity daily",
-        "Include walking, cycling, or swimming",
-        "Do strength training twice a week",
-        "Practice stretching exercises",
-        "Take stairs instead of elevators"
+      "weekly_recommendations": {
+        "moderate_activity": "150 minutes per week",
+        "vigorous_activity": "75 minutes per week",
+        "strength_training": "2-3 sessions per week",
+        "flexibility_work": "2-3 sessions per week"
+      },
+      "types_of_exercise": {
+        "cardio": [
+          "Walking",
+          "Cycling",
+          "Swimming",
+          "Dancing",
+          "Jogging"
+        ],
+        "strength": [
+          "Weight training",
+          "Bodyweight exercises",
+          "Resistance bands",
+          "Yoga",
+          "Pilates"
+        ],
+        "flexibility": [
+          "Stretching",
+          "Yoga",
+          "Tai Chi"
+        ]
+      },
+      "safety_tips": [
+        "Start slowly and progress gradually",
+        "Warm up before exercise",
+        "Stay hydrated",
+        "Use proper form",
+        "Listen to your body",
+        "Cool down after exercise"
+      ],
+      "benefits": [
+        "Weight management",
+        "Improved cardiovascular health",
+        "Better mental health",
+        "Stronger bones and muscles",
+        "Enhanced immune function",
+        "Better sleep quality"
       ]
     },
     "mental_health": {
-      "tips": [
-        "Get 7-9 hours of sleep daily",
-        "Practice meditation or deep breathing",
-        "Stay connected with family and friends",
-        "Engage in hobbies",
-        "Seek help when feeling overwhelmed"
+      "daily_practices": [
+        "Get 7-9 hours of quality sleep",
+        "Practice mindfulness or meditation",
+        "Maintain social connections",
+        "Engage in enjoyable activities",
+        "Set realistic goals",
+        "Take regular breaks from work"
+      ],
+      "stress_management": {
+        "techniques": [
+          "Deep breathing exercises",
+          "Progressive muscle relaxation",
+          "Guided imagery",
+          "Journal writing",
+          "Time management",
+          "Setting boundaries"
+        ],
+        "lifestyle_factors": [
+          "Regular exercise",
+          "Healthy diet",
+          "Adequate sleep",
+          "Limited screen time",
+          "Time in nature",
+          "Creative activities"
+        ]
+      },
+      "warning_signs": [
+        "Persistent sad or anxious mood",
+        "Changes in sleep patterns",
+        "Loss of interest in activities",
+        "Difficulty concentrating",
+        "Physical symptoms without clear cause",
+        "Thoughts of self-harm"
+      ],
+      "support_resources": [
+        "Mental health professionals",
+        "Support groups",
+        "Crisis helplines",
+        "Online therapy options",
+        "Community resources",
+        "Family and friends"
+      ]
+    },
+    "sleep_hygiene": {
+      "recommended_practices": [
+        "Maintain consistent sleep schedule",
+        "Create a relaxing bedtime routine",
+        "Optimize sleep environment (dark, quiet, cool)",
+        "Limit screen time before bed",
+        "Avoid large meals close to bedtime",
+        "Exercise regularly but not too close to bedtime"
+      ],
+      "things_to_avoid": [
+        "Caffeine late in the day",
+        "Alcohol before bedtime",
+        "Long daytime naps",
+        "Working in bed",
+        "Bright lights in evening"
       ]
     }
   },
   "vaccination_schedules": {
     "children": {
-      "birth": ["BCG", "Hepatitis B", "OPV-0"],
-      "6_weeks": ["DPT-1", "OPV-1", "Hepatitis B-2", "Hib-1", "Rotavirus-1", "PCV-1"],
-      "10_weeks": ["DPT-2", "OPV-2", "Hib-2", "Rotavirus-2", "PCV-2"],
-      "14_weeks": ["DPT-3", "OPV-3", "Hib-3", "Rotavirus-3", "PCV-3", "IPV-1"],
-      "9_months": ["Measles-1", "JE-1"],
-      "12_months": ["Hepatitis A-1"],
-      "15_months": ["MMR-1", "Varicella-1", "PCV Booster"],
-      "18_months": ["DPT Booster", "OPV Booster", "Hepatitis A-2"],
-      "2_years": ["Typhoid"],
-      "4_6_years": ["DPT-2 Booster", "OPV-2 Booster", "MMR-2", "Varicella-2"]
+      "birth": {
+        "vaccines": ["BCG", "Hepatitis B", "OPV-0"],
+        "descriptions": {
+          "BCG": "Protects against tuberculosis",
+          "Hepatitis B": "First dose of hepatitis B protection",
+          "OPV-0": "First oral polio vaccine dose"
+        },
+        "important_notes": [
+          "Must be given within 24 hours of birth if possible",
+          "Monitor for any immediate reactions",
+          "Keep vaccination record safe"
+        ]
+      },
+      "6_weeks": {
+        "vaccines": ["DPT-1", "OPV-1", "Hepatitis B-2", "Hib-1", "Rotavirus-1", "PCV-1"],
+        "descriptions": {
+          "DPT-1": "First dose protecting against Diphtheria, Pertussis, and Tetanus",
+          "Hib-1": "Protects against Haemophilus influenzae type b",
+          "Rotavirus-1": "Protects against severe diarrheal disease",
+          "PCV-1": "Protects against pneumococcal diseases"
+        }
+      },
+      "10_weeks": {
+        "vaccines": ["DPT-2", "OPV-2", "Hib-2", "Rotavirus-2", "PCV-2"],
+        "descriptions": {
+          "DPT-2": "Second dose of DPT series",
+          "PCV-2": "Second pneumococcal vaccine dose"
+        }
+      },
+      "14_weeks": {
+        "vaccines": ["DPT-3", "OPV-3", "Hib-3", "Rotavirus-3", "PCV-3", "IPV-1"],
+        "descriptions": {
+          "IPV-1": "Inactivated polio vaccine for additional protection"
+        }
+      },
+      "6_months": {
+        "vaccines": ["Influenza-1"],
+        "descriptions": {
+          "Influenza-1": "First flu shot, to be repeated annually"
+        },
+        "notes": "Repeat annually before flu season"
+      },
+      "9_months": {
+        "vaccines": ["Measles-1", "JE-1"],
+        "descriptions": {
+          "JE-1": "Protects against Japanese Encephalitis in endemic areas"
+        }
+      },
+      "12_months": {
+        "vaccines": ["Hepatitis A-1", "Influenza-2"],
+        "descriptions": {
+          "Hepatitis A-1": "First dose of Hepatitis A protection"
+        }
+      },
+      "15_months": {
+        "vaccines": ["MMR-1", "Varicella-1", "PCV Booster"],
+        "descriptions": {
+          "MMR-1": "Protects against Measles, Mumps, and Rubella",
+          "Varicella-1": "Protects against chickenpox"
+        }
+      },
+      "18_months": {
+        "vaccines": ["DPT Booster", "OPV Booster", "Hepatitis A-2"],
+        "descriptions": {
+          "DPT Booster": "Reinforces protection against Diphtheria, Pertussis, and Tetanus"
+        }
+      },
+      "2_years": {
+        "vaccines": ["Typhoid"],
+        "descriptions": {
+          "Typhoid": "Protects against typhoid fever"
+        }
+      },
+      "4_6_years": {
+        "vaccines": ["DPT-2 Booster", "OPV-2 Booster", "MMR-2", "Varicella-2"],
+        "descriptions": {
+          "MMR-2": "Second dose completes MMR series",
+          "Varicella-2": "Completes chickenpox protection"
+        }
+      }
     },
     "adults": {
-      "annual": ["Influenza"],
-      "every_10_years": ["Tetanus"],
-      "one_time": ["Hepatitis B series", "MMR (if not vaccinated as child)"],
+      "annual": {
+        "vaccines": ["Influenza"],
+        "recommendations": "Get flu shot before flu season",
+        "high_risk_groups": [
+          "Healthcare workers",
+          "Elderly",
+          "Pregnant women",
+          "Those with chronic conditions"
+        ]
+      },
+      "every_10_years": {
+        "vaccines": ["Tdap/Td"],
+        "descriptions": {
+          "Tdap": "Tetanus, diphtheria, and pertussis booster",
+          "Td": "Tetanus and diphtheria booster"
+        }
+      },
+      "one_time": {
+        "vaccines": ["Hepatitis B series", "MMR", "Varicella"],
+        "notes": "If not received during childhood or no immunity"
+      },
       "special_groups": {
-        "pregnant_women": ["Tdap", "Influenza"],
-        "elderly": ["Pneumococcal", "Shingles"],
-        "travelers": ["Yellow fever", "Japanese Encephalitis", "Typhoid"]
+        "pregnant_women": {
+          "vaccines": ["Tdap", "Influenza"],
+          "timing": {
+            "Tdap": "27-36 weeks of each pregnancy",
+            "Influenza": "Any trimester during flu season"
+          }
+        },
+        "elderly": {
+          "vaccines": ["Pneumococcal", "Shingles", "High-dose Influenza"],
+          "age_recommendations": {
+            "Pneumococcal": "65 years and older",
+            "Shingles": "50 years and older",
+            "High-dose Influenza": "65 years and older"
+          }
+        },
+        "immunocompromised": {
+          "vaccines": ["Pneumococcal", "Meningococcal", "Hib"],
+          "notes": "Consult healthcare provider for specific schedule"
+        },
+        "travelers": {
+          "common_vaccines": ["Yellow fever", "Japanese Encephalitis", "Typhoid", "Hepatitis A"],
+          "recommendations": [
+            "Check CDC travel recommendations",
+            "Get vaccines 4-6 weeks before travel",
+            "Keep vaccination record while traveling"
+          ]
+        }
       }
     }
   },
   "emergency_contacts": {
     "national_helplines": {
-      "ambulance": "108",
-      "medical_emergency": "102",
-      "poison_control": "1800-11-0085"
+      "ambulance": {
+        "number": "108",
+        "services": [
+          "Medical emergencies",
+          "Accident response",
+          "Emergency transport"
+        ],
+        "when_to_call": [
+          "Life-threatening emergencies",
+          "Severe accidents",
+          "Heart attack or stroke symptoms",
+          "Severe bleeding"
+        ]
+      },
+      "medical_emergency": {
+        "number": "102",
+        "services": [
+          "Non-critical medical transport",
+          "Medical advice",
+          "Healthcare facility information"
+        ]
+      },
+      "poison_control": {
+        "number": "1800-11-0085",
+        "services": [
+          "Poison exposure guidance",
+          "Treatment advice",
+          "Emergency protocols"
+        ],
+        "information_needed": [
+          "Age and weight of patient",
+          "Name of substance",
+          "Amount consumed",
+          "Time since exposure"
+        ]
+      }
     },
     "disease_specific": {
-      "covid_helpline": "1075",
-      "mental_health": "1800-599-0019",
-      "aids_helpline": "1097"
+      "covid_helpline": {
+        "number": "1075",
+        "services": [
+          "COVID-19 information",
+          "Testing guidance",
+          "Vaccination support",
+          "Hospital bed availability"
+        ]
+      },
+      "mental_health": {
+        "number": "1800-599-0019",
+        "services": [
+          "24/7 counseling",
+          "Crisis intervention",
+          "Suicide prevention",
+          "Mental health resources"
+        ]
+      },
+      "aids_helpline": {
+        "number": "1097",
+        "services": [
+          "HIV/AIDS information",
+          "Testing guidance",
+          "Treatment support",
+          "Confidential counseling"
+        ]
+      }
+    },
+    "regional_hospitals": {
+      "verify_information": "Contact your local health department for current information",
+      "recommended_details_to_keep": [
+        "Nearest emergency room location",
+        "Local clinic contact numbers",
+        "Family doctor's contact",
+        "Blood bank contacts",
+        "Local pharmacy numbers"
+      ]
     }
   }
 }
