@@ -893,31 +893,67 @@ document.addEventListener('DOMContentLoaded', function () {
 
     // NEW: Function to render Chart.js chart
     function renderSymptomChart(symptoms) {
-        const symptomCounts = symptoms.reduce((acc, s) => {
-            acc[s.symptom] = (acc[s.symptom] || 0) + 1;
-            return acc;
-        }, {});
+        if (!elements.symptomChartCanvas) return;
 
-        if (symptomChart) {
-            symptomChart.destroy(); // Destroy old chart before creating a new one
-        }
+        // Group by symptom name
+        const grouped = {};
+        symptoms.forEach(s => {
+            if (!grouped[s.symptom]) grouped[s.symptom] = [];
+            grouped[s.symptom].push({
+                x: new Date(s.datetime),
+                y: parseInt(s.severity)
+            });
+        });
+
+        // Generate a color for each symptom
+        const colorList = [
+            '#5E936C', '#FF6B6B', '#4ECDC4', '#FFD166', '#6C63FF', '#FFB6B9', '#A8E6CF', '#FF8C42'
+        ];
+        const datasets = Object.entries(grouped).map(([symptom, points], i) => ({
+            label: symptom,
+            data: points.sort((a, b) => a.x - b.x),
+            borderColor: colorList[i % colorList.length],
+            backgroundColor: colorList[i % colorList.length] + '33',
+            tension: 0.3,
+            pointRadius: 5,
+            pointHoverRadius: 7,
+            fill: false
+        }));
+
+        if (symptomChart) symptomChart.destroy();
 
         symptomChart = new Chart(elements.symptomChartCanvas, {
-            type: 'bar',
-            data: {
-                labels: Object.keys(symptomCounts),
-                datasets: [{
-                    label: 'Symptom Count',
-                    data: Object.values(symptomCounts),
-                    backgroundColor: 'rgba(0, 123, 255, 0.5)',
-                    borderColor: 'rgba(0, 123, 255, 1)',
-                    borderWidth: 1
-                }]
-            },
+            type: 'line',
+            data: { datasets },
             options: {
-                scales: { y: { beginAtZero: true, ticks: { stepSize: 1 } } },
                 responsive: true,
-                plugins: { legend: { display: false } }
+                plugins: {
+                    legend: { display: true },
+                    tooltip: {
+                        callbacks: {
+                            label: ctx => {
+                                const sev = ctx.parsed.y;
+                                return `${ctx.dataset.label}: ${['', 'Mild', 'Moderate', 'Severe'][sev]} (${sev}) at ${ctx.parsed.x.toLocaleString()}`;
+                            }
+                        }
+                    }
+                },
+                scales: {
+                    x: {
+                        type: 'time',
+                        time: { unit: 'day', tooltipFormat: 'PPpp' },
+                        title: { display: true, text: 'Date/Time' }
+                    },
+                    y: {
+                        min: 1,
+                        max: 3,
+                        ticks: {
+                            stepSize: 1,
+                            callback: v => ['', 'Mild', 'Moderate', 'Severe'][v]
+                        },
+                        title: { display: true, text: 'Severity' }
+                    }
+                }
             }
         });
     }

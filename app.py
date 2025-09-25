@@ -718,6 +718,26 @@ def find_nearby_hospitals():
         
     return jsonify(hospitals)
 
+@app.route('/api/user-symptoms')
+def get_user_symptoms():
+    if 'user_id' not in session:
+        return jsonify({'error': 'Not logged in'}), 401
+    
+    user_id = session['user_id']
+    user_symptoms = db.symptoms.find({
+        'user_id': user_id
+    }).sort('timestamp', -1)
+    
+    return jsonify({
+        'symptoms': [{
+            'id': str(s['_id']),
+            'name': s['name'],
+            'severity': s['severity'],
+            'notes': s.get('notes', ''),
+            'timestamp': s['timestamp'].isoformat(),
+        } for s in user_symptoms]
+    })
+
 
 if __name__ == '__main__':
     port = int(os.environ.get('PORT', Config.PORT))

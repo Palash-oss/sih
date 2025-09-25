@@ -1,0 +1,55 @@
+/* Add to the existing <style> section in health_dashboard.html */
+:root {
+    --dark-green: #3E5F44;
+    --mid-green: #5E936C;
+    --light-green: #93DA97;
+    --mint: #E8FFD7;
+    --radius: 18px;
+}
+
+.symptom-entry {
+    cursor: pointer;
+    padding: 1rem;
+    border-radius: var(--radius);
+    margin-bottom: 0.5rem;
+    background: white;
+    border-left: 4px solid var(--mid-green);
+    transition: all 0.2s ease;
+}
+
+.symptom-entry:hover {
+    transform: translateX(5px);
+    box-shadow: 0 2px 8px rgba(62,95,68,0.1);
+}
+
+.symptom-entry .severity-badge {
+    font-size: 0.8rem;
+    padding: 0.25rem 0.5rem;
+    border-radius: 12px;
+}
+
+.severity-1 { background-color: var(--mint); color: var(--dark-green); }
+.severity-2 { background-color: #FFF3CD; color: #856404; }
+.severity-3 { background-color: #F8D7DA; color: #721C24; }
+
+.symptom-timestamp {
+    font-size: 0.8rem;
+    color: var(--mid-green);
+}
+
+.card {
+    border-radius: var(--radius);
+    border: none;
+    box-shadow: 0 4px 6px rgba(62,95,68,0.1);
+}
+
+.card-title {
+    color: var(--dark-green);
+    font-weight: 600;
+}
+
+#map {
+    border-radius: var(--radius);
+    overflow: hidden;
+    box-shadow: 0 4px 6px rgba(62,95,68,0.1);
+}
