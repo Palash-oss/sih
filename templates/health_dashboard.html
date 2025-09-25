@@ -1,0 +1,273 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Health Dashboard | Healthcare Chatbot</title>
+    <!-- Bootstrap CSS -->
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
+    <!-- Font Awesome -->
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css" rel="stylesheet">
+    <!-- Chart.js -->
+    <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+    <!-- Leaflet CSS -->
+    <link rel="stylesheet" href="https://unpkg.com/leaflet@1.9.4/dist/leaflet.css" />
+    <style>
+        .nav-pills .nav-link.active {
+            background-color: #6c757d;
+        }
+        .card-dashboard {
+            border-radius: 10px;
+            box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+            transition: transform 0.2s, box-shadow 0.2s;
+        }
+        .card-dashboard:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 6px 12px rgba(0, 0, 0, 0.15);
+        }
+        .dashboard-icon {
+            font-size: 2rem;
+            margin-bottom: 15px;
+        }
+        .timeline-item {
+            position: relative;
+            padding-left: 40px;
+            margin-bottom: 15px;
+        }
+        .timeline-item::before {
+            content: '';
+            position: absolute;
+            left: 15px;
+            top: 0;
+            height: 100%;
+            width: 2px;
+            background-color: #dee2e6;
+        }
+        .timeline-item::after {
+            content: '';
+            position: absolute;
+            left: 9px;
+            top: 5px;
+            width: 14px;
+            height: 14px;
+            border-radius: 50%;
+            background-color: #6c757d;
+        }
+        .timeline-date {
+            font-size: 0.8rem;
+            color: #6c757d;
+        }
+        .symptom-severity-1 { background-color: #d4edda; }
+        .symptom-severity-2 { background-color: #fff3cd; }
+        .symptom-severity-3 { background-color: #f8d7da; }
+        .health-metric-good { color: #28a745; }
+        .health-metric-warning { color: #ffc107; }
+        .health-metric-danger { color: #dc3545; }
+        .metric-card {
+            min-height: 150px;
+        }
+        .family-member-card {
+            transition: all 0.3s ease;
+        }
+        .family-member-card:hover {
+            transform: scale(1.02);
+        }
+        .risk-level-low { color: #28a745; }
+        .risk-level-moderate { color: #ffc107; }
+        .risk-level-high { color: #dc3545; }
+        .risk-level-critical { color: #343a40; }
+    </style>
+</head>
+<body>
+    <!-- Header -->
+    <header class="bg-light py-3 mb-4 border-bottom">
+        <div class="container d-flex align-items-center justify-content-between">
+            <h1 class="h4 mb-0">
+                <i class="fas fa-heartbeat text-danger me-2"></i> Health Dashboard
+            </h1>
+            <div>
+                <a href="{{ url_for('home') }}" class="btn btn-sm btn-outline-secondary">
+                    <i class="fas fa-arrow-left me-1"></i> Back to Chat
+                </a>
+                <button id="refreshDataBtn" class="btn btn-sm btn-primary">
+                    <i class="fas fa-sync-alt me-1"></i> Refresh Data
+                </button>
+            </div>
+        </div>
+    </header>
+
+    <div class="container mt-4">
+        <div class="d-flex justify-content-between align-items-center mb-3">
+            <h2 class="h4"><i class="fas fa-heartbeat text-danger me-2"></i>Health Dashboard</h2>
+            <div>
+                <a href="{{ url_for('home') }}" class="btn btn-sm btn-outline-secondary"><i class="fas fa-arrow-left me-1"></i> Back</a>
+                <button id="refreshDataBtn" class="btn btn-sm btn-primary"><i class="fas fa-sync-alt me-1"></i> Refresh</button>
+            </div>
+        </div>
+
+        <div class="row">
+            <!-- Left Column -->
+            <div class="col-lg-8">
+                <!-- Health Summary -->
+                <div class="card mb-4">
+                    <div class="card-body d-flex align-items-center">
+                        <i class="fas fa-user-circle fa-3x text-secondary me-3"></i>
+                        <div>
+                            <h5 class="mb-1" id="userName">Loading...</h5>
+                            <p class="text-muted mb-0" id="healthSummary">Loading health summary...</p>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Tab Navigation -->
+                <ul class="nav nav-tabs mb-3" id="dashboardTabs" role="tablist">
+                    <li class="nav-item" role="presentation">
+                        <button class="nav-link active" id="symptom-timeline-tab" data-bs-toggle="tab" data-bs-target="#symptom-timeline-content" type="button">Symptom Timeline</button>
+                    </li>
+                    <li class="nav-item" role="presentation">
+                        <button class="nav-link" id="health-metrics-tab" data-bs-toggle="tab" data-bs-target="#health-metrics-content" type="button">Health Metrics</button>
+                    </li>
+                </ul>
+
+                <!-- Tab Content -->
+                <div class="tab-content" id="dashboardTabContent">
+                    <div class="tab-pane fade show active" id="symptom-timeline-content" role="tabpanel">
+                        <div class="card mb-4">
+                            <div class="card-body">
+                                <h6 class="card-title">Symptom Severity Over Time</h6>
+                                <canvas id="symptomChart"></canvas>
+                            </div>
+                        </div>
+                        <h6 class="mb-3">Symptom History</h6>
+                        <div id="symptomTimelineContainer"><p>Loading timeline...</p></div>
+                    </div>
+                    <div class="tab-pane fade" id="health-metrics-content" role="tabpanel">
+                        <div id="healthMetricsContainer"><p>Loading metrics...</p></div>
+                    </div>
+                </div>
+
+                <!-- Nearby Hospitals Card -->
+                <div class="card mt-4">
+                    <div class="card-body">
+                        <h5 class="card-title">Nearby Hospitals</h5>
+                        <p>Find medical facilities in your vicinity.</p>
+                        <button id="findHospitalsBtn" class="btn btn-info">
+                            <i class="fas fa-hospital me-1"></i> Find Nearby Hospitals
+                        </button>
+                        <div id="map" class="mt-3" style="height: 400px; display: none;"></div>
+                        <!-- NEW: Container for the hospital list -->
+                        <div id="hospital-list" class="list-group mt-3"></div>
+                        <div id="map-error" class="text-danger mt-2"></div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Right Column -->
+            <div class="col-lg-4">
+                <!-- Quick Actions -->
+                <div class="card mb-4">
+                    <div class="card-body">
+                        <h6 class="card-title">Quick Actions</h6>
+                        <button class="btn btn-sm btn-outline-primary me-1" data-bs-toggle="modal" data-bs-target="#addSymptomModal">Add Symptom</button>
+                        <button class="btn btn-sm btn-outline-success" data-bs-toggle="modal" data-bs-target="#addFamilyMemberModal">Add Family Member</button>
+                    </div>
+                </div>
+                <!-- Recent Symptoms -->
+                <div class="card">
+                    <div class="card-body">
+                        <h6 class="card-title">Recent Symptoms</h6>
+                        <div id="recentSymptomsList"><p>Loading recent symptoms...</p></div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Add Symptom Modal -->
+    <div class="modal fade" id="addSymptomModal" tabindex="-1">
+        <div class="modal-dialog">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <h5 class="modal-title">Add New Symptom</h5>
+                    <button type="button" class="btn-close" data-bs-dismiss="modal"></button>
+                </div>
+                <div class="modal-body">
+                    <form id="addSymptomForm">
+                        <div class="mb-3">
+                            <label for="symptomName" class="form-label">Symptom</label>
+                            <input type="text" class="form-control" id="symptomName" required>
+                        </div>
+                        <div class="mb-3">
+                            <label for="symptomSeverity" class="form-label">Severity</label>
+                            <select class="form-select" id="symptomSeverity">
+                                <option>Mild</option>
+                                <option>Moderate</option>
+                                <option>Severe</option>
+                            </select>
+                        </div>
+                        <div class="mb-3">
+                            <label for="symptomNotes" class="form-label">Notes</label>
+                            <textarea class="form-control" id="symptomNotes" rows="2"></textarea>
+                        </div>
+                        <button type="submit" class="btn btn-primary">Add Symptom</button>
+                    </form>
+                </div>
+            </div>
+        </div>
+    </div>
+    
+    <!-- Add Family Member Modal (Example) -->
+    <div class="modal fade" id="addFamilyMemberModal" tabindex="-1">
+        <div class="modal-dialog">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <h5 class="modal-title">Add Family Member</h5>
+                    <button type="button" class="btn-close" data-bs-dismiss="modal"></button>
+                </div>
+                <div class="modal-body">
+                    <p>Family member functionality coming soon.</p>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- NEW: Edit Health Data Modal -->
+    <div class="modal fade" id="editHealthDataModal" tabindex="-1">
+        <div class="modal-dialog">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <h5 class="modal-title">Edit Health Data</h5>
+                    <button type="button" class="btn-close" data-bs-dismiss="modal"></button>
+                </div>
+                <div class="modal-body">
+                    <form id="editHealthDataForm">
+                        <div class="mb-3">
+                            <label for="editWeight" class="form-label">Weight (kg)</label>
+                            <input type="number" class="form-control" id="editWeight" required>
+                        </div>
+                        <div class="mb-3">
+                            <label for="editHeight" class="form-label">Height (cm)</label>
+                            <input type="number" class="form-control" id="editHeight" required>
+                        </div>
+                        <div class="mb-3">
+                            <label for="editBloodPressure" class="form-label">Blood Pressure (e.g., 120/80)</label>
+                            <input type="text" class="form-control" id="editBloodPressure" required>
+                        </div>
+                        <div class="mb-3">
+                            <label for="editBloodGroup" class="form-label">Blood Group</label>
+                            <input type="text" class="form-control" id="editBloodGroup" required>
+                        </div>
+                        <button type="submit" class="btn btn-primary">Save Changes</button>
+                    </form>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/js/bootstrap.bundle.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+    <script src="https://unpkg.com/leaflet@1.9.4/dist/leaflet.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/chartjs-adapter-date-fns/dist/chartjs-adapter-date-fns.bundle.min.js"></script>
+    <script src="{{ url_for('static', filename='js/health_dashboard.js') }}"></script>
+</body>
+</html>

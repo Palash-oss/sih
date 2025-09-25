@@ -1,0 +1,63 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>{{ mode|capitalize }} - Health Dashboard</title>
+    <style>
+        body { font-family: Arial, sans-serif; background: #f4f4f4; }
+        .login-container {
+            width: 350px;
+            margin: 80px auto;
+            background: #fff;
+            padding: 30px 40px;
+            border-radius: 8px;
+            box-shadow: 0 2px 8px rgba(0,0,0,0.1);
+        }
+        h2 { text-align: center; margin-bottom: 24px; }
+        label { display: block; margin-bottom: 6px; }
+        input[type="text"] {
+            width: 100%;
+            padding: 8px;
+            margin-bottom: 18px;
+            border: 1px solid #ccc;
+            border-radius: 4px;
+        }
+        button {
+            width: 100%;
+            padding: 10px;
+            background: #007bff;
+            color: #fff;
+            border: none;
+            border-radius: 4px;
+            font-size: 16px;
+        }
+        .error { color: red; text-align: center; margin-bottom: 10px; }
+        .switch-link { text-align: center; margin-top: 10px; }
+        .switch-link a { color: #007bff; text-decoration: underline; cursor: pointer; }
+    </style>
+</head>
+<body>
+    <div class="login-container">
+        <h2>{{ 'Register' if mode == 'register' else 'Login' }}</h2>
+        {% if error %}
+            <div class="error">{{ error }}</div>
+        {% endif %}
+        <form method="POST" action="{{ url_for('login') if mode == 'login' else url_for('register') }}">
+            <label for="phone">Phone Number</label>
+            <input type="text" id="phone" name="phone" maxlength="10" required pattern="\d{10}" placeholder="Enter 10-digit phone" value="{{ phone|default('') }}">
+
+            <label for="aadhaar">Aadhaar Number</label>
+            <input type="text" id="aadhaar" name="aadhaar" maxlength="12" required pattern="\d{12}" placeholder="Enter 12-digit Aadhaar" value="{{ aadhaar|default('') }}">
+
+            <button type="submit">{{ 'Register' if mode == 'register' else 'Login' }}</button>
+        </form>
+        <div class="switch-link">
+            {% if mode == 'login' %}
+                New user? <a href="{{ url_for('register') }}">Register here</a>
+            {% else %}
+                Already have an account? <a href="{{ url_for('login') }}">Login here</a>
+            {% endif %}
+        </div>
+    </div>
+</body>
+</html>

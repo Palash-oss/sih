@@ -1,0 +1,993 @@
+{
+  "diseases": {
+    "fever": {
+      "description": "Fever is a temporary rise in body temperature, often due to an underlying illness or infection. It is a natural defense mechanism that helps the body fight off pathogens. Normal body temperature is about 98.6°F (37°C); fever is generally considered to be 100.4°F (38°C) or higher.",
+      "causes": [
+        "Viral or bacterial infections (e.g., flu, pneumonia, COVID-19)",
+        "Heat exhaustion or sunstroke",
+        "Autoimmune disorders",
+        "Certain medications (drug-induced fever)",
+        "Vaccinations (as a side effect)",
+        "Cancer (rarely, as a paraneoplastic syndrome)"
+      ],
+      "symptoms": [
+        "Elevated body temperature (measured with a thermometer)",
+        "Chills and shivering",
+        "Sweating",
+        "Headache",
+        "Muscle aches and joint pain",
+        "Loss of appetite",
+        "Dehydration (dry mouth, less urination)",
+        "Rapid heart rate",
+        "Flushed skin or feeling hot"
+      ],
+      "stages": [
+        "Onset: Feeling cold, shivering, rising temperature",
+        "Plateau: Temperature stabilizes, feeling hot, sweating",
+        "Defervescence: Temperature returns to normal, sweating may increase"
+      ],
+      "prevention": [
+        "Practice good hand hygiene (wash hands regularly)",
+        "Avoid close contact with sick individuals",
+        "Disinfect frequently touched surfaces",
+        "Stay up to date with vaccinations",
+        "Maintain a healthy lifestyle to support immune function"
+      ],
+      "lifestyle_tips": [
+        "Rest as much as possible to help your body recover",
+        "Drink plenty of fluids (water, clear broths, electrolyte drinks)",
+        "Eat light, nutritious foods if you feel hungry",
+        "Wear lightweight, breathable clothing",
+        "Keep your room well-ventilated and at a comfortable temperature"
+      ],
+      "treatment_options": [
+        "Over-the-counter fever reducers (acetaminophen, ibuprofen)",
+        "Cool compresses or lukewarm baths",
+        "Adequate rest and sleep",
+        "Hydration: drink water, oral rehydration solutions if needed",
+        "Seek medical advice if unsure about the cause"
+      ],
+      "risk_factors": [
+        "Weakened immune system (elderly, infants, chronic illness)",
+        "Recent travel to areas with infectious diseases",
+        "Close contact with sick individuals",
+        "Chronic medical conditions (diabetes, heart disease)"
+      ],
+      "complications": [
+        "Dehydration",
+        "Febrile seizures (especially in young children)",
+        "Hallucinations or confusion",
+        "Severe fatigue",
+        "Organ damage (rare, in prolonged high fever)"
+      ],
+      "when_to_seek_help": [
+        "Fever above 103°F (39.4°C) in adults",
+        "Fever lasting more than 3 days",
+        "Severe headache with stiff neck",
+        "Difficulty breathing or chest pain",
+        "Persistent vomiting or diarrhea",
+        "Unusual sensitivity to bright light",
+        "Mental confusion or extreme irritability",
+        "Seizures or convulsions",
+        "Rash that doesn't fade when pressed",
+        "Fever in infants under 3 months old"
+      ],
+      "faqs": [
+        {
+          "q": "Is fever always a sign of infection?",
+          "a": "No, fever can also be caused by heat exhaustion, autoimmune diseases, or as a side effect of medication or vaccination."
+        },
+        {
+          "q": "Should I always treat a fever?",
+          "a": "Mild fevers do not always require treatment unless they cause discomfort. Focus on rest and hydration. Treat high or persistent fevers, or if you have risk factors."
+        },
+        {
+          "q": "Can I go to work or school with a fever?",
+          "a": "No. Stay home to rest and avoid spreading illness to others."
+        }
+      ]
+    },
+  "pneumonia": {"description": "Pneumonia is an infection that inflames the air sacs in one or both lungs, which may fill with fluid or pus. It can be caused by bacteria, viruses, or fungi.","causes": ["Bacterial infections (Streptococcus pneumoniae, Haemophilus influenzae)","Viral infections (influenza, RSV, COVID-19)","Fungal infections (rare)"],"symptoms": ["Cough (may produce phlegm)","Fever and chills","Shortness of breath","Chest pain when breathing or coughing","Fatigue","Nausea, vomiting, or diarrhea"],"stages": ["Mild: Symptoms similar to a bad cold","Moderate: More severe symptoms, may need medical care","Severe: Hospitalization may be required"],"prevention": ["Get vaccinated (pneumococcal, flu, COVID-19)","Practice good hand hygiene","Avoid smoking","Manage chronic conditions (diabetes, asthma)"],"lifestyle_tips": ["Rest and stay hydrated","Follow your doctor’s treatment plan","Avoid contact with sick people","Use a humidifier to ease breathing"],"treatment_options": ["Antibiotics (for bacterial pneumonia)","Antiviral or antifungal medications (if indicated)","Fever reducers and pain relievers","Hospital care for severe cases"],"risk_factors": ["Age (infants, elderly)","Chronic diseases (heart, lung, diabetes)","Weakened immune system","Smoking"],"complications": ["Respiratory failure","Sepsis","Lung abscess","Pleural effusion (fluid around lungs)"],"when_to_seek_help": ["Difficulty breathing","Chest pain","High fever that does not improve","Confusion or bluish lips/face"],"faqs": [{"q": "Is pneumonia contagious?", "a": "Some types are, especially viral and bacterial pneumonia. Practice good hygiene to reduce risk."},{"q": "How long does recovery take?", "a": "Mild cases recover in 1-2 weeks, severe cases may take longer."}]},
+  "dengue": {"description": "Dengue is a mosquito-borne viral infection causing high fever, severe headache, pain behind the eyes, joint and muscle pain, rash, and mild bleeding.","causes": ["Dengue virus transmitted by Aedes mosquitoes (A. aegypti, A. albopictus)"],"symptoms": ["Sudden high fever","Severe headache","Pain behind the eyes","Joint and muscle pain (breakbone fever)","Nausea and vomiting","Skin rash (appears 2-5 days after fever)","Mild bleeding (nose, gums, easy bruising)"],"stages": ["Febrile phase: High fever, headache, pain","Critical phase: Risk of shock, bleeding (usually after fever subsides)","Recovery phase: Gradual improvement"],"prevention": ["Use mosquito repellents","Wear long-sleeved clothing","Use bed nets and window screens","Eliminate standing water around home"],"lifestyle_tips": ["Rest and drink plenty of fluids","Monitor for warning signs (bleeding, severe pain, persistent vomiting)","Seek medical care if symptoms worsen"],"treatment_options": ["No specific antiviral treatment","Supportive care: fluids, pain relievers (acetaminophen)","Avoid NSAIDs (ibuprofen, aspirin) due to bleeding risk"],"risk_factors": ["Living or traveling in tropical/subtropical areas","Previous dengue infection (risk of severe dengue)"],"complications": ["Severe dengue (dengue hemorrhagic fever, dengue shock syndrome)","Organ failure","Severe bleeding"],"when_to_seek_help": ["Severe abdominal pain","Persistent vomiting","Bleeding from nose or gums","Blood in vomit or stool","Difficulty breathing"],"faqs": [{"q": "Can dengue be prevented?", "a": "Yes, by avoiding mosquito bites and eliminating breeding sites."},{"q": "Is there a vaccine?", "a": "A vaccine exists but is not widely available in all countries."}]},
+  "tuberculosis": {"description": "Tuberculosis (TB) is a potentially serious infectious disease that mainly affects the lungs but can affect other organs. It is caused by Mycobacterium tuberculosis.","causes": ["Mycobacterium tuberculosis bacteria, spread through airborne droplets when an infected person coughs or sneezes."],"symptoms": ["Persistent cough (lasting 3+ weeks)","Coughing up blood or sputum","Chest pain","Unintentional weight loss","Fatigue","Fever and night sweats","Loss of appetite"],"stages": ["Latent TB: Infected but no symptoms, not contagious","Active TB: Symptoms present, contagious"],"prevention": ["BCG vaccination (in high-risk countries)","Good ventilation in living spaces","Early detection and treatment of active cases"],"lifestyle_tips": ["Take all medications as prescribed","Eat a nutritious diet","Avoid close contact with others until cleared by doctor"],"treatment_options": ["Long-term antibiotics (6+ months)","Directly observed therapy (DOT)","Hospitalization for severe cases"],"risk_factors": ["HIV infection","Close contact with TB patient","Weakened immune system","Living/working in crowded conditions"],"complications": ["Lung damage","Spread to other organs (miliary TB)","Drug-resistant TB"],"when_to_seek_help": ["Cough lasting more than 3 weeks","Coughing up blood","Severe chest pain or difficulty breathing"],"faqs": [{"q": "Is TB curable?", "a": "Yes, with proper antibiotics taken for the full course."},{"q": "Can I catch TB from sharing food?", "a": "No, TB is spread through the air, not by sharing food or drinks."}]},
+  "hepatitis_b": {"description": "Hepatitis B is a viral infection that attacks the liver and can cause both acute and chronic disease. It is spread through contact with blood or other body fluids.","causes": ["Hepatitis B virus (HBV), spread by blood, sexual contact, or from mother to child at birth."],"symptoms": ["Fatigue","Loss of appetite","Nausea and vomiting","Abdominal pain (especially upper right side)","Jaundice (yellowing of skin and eyes)","Dark urine","Joint pain"],"stages": ["Acute: Short-term illness, may resolve on its own","Chronic: Long-term infection, risk of liver damage"],"prevention": ["Hepatitis B vaccination","Practice safe sex","Avoid sharing needles or personal items","Screen blood donations"],"lifestyle_tips": ["Avoid alcohol to protect your liver","Eat a healthy, balanced diet","Get regular medical checkups"],"treatment_options": ["Antiviral medications (for chronic cases)","Regular monitoring of liver function","Liver transplant (in severe cases)"],"risk_factors": ["Unprotected sex","Sharing needles","Mother-to-child transmission","Healthcare workers exposed to blood"],"complications": ["Cirrhosis (scarring of the liver)","Liver cancer","Liver failure"],"when_to_seek_help": ["Jaundice (yellow skin/eyes)","Severe abdominal pain","Vomiting blood or passing black stools"],"faqs": [{"q": "Is hepatitis B curable?", "a": "Acute hepatitis B can resolve on its own. Chronic hepatitis B can be managed but not always cured."},{"q": "Can I get hepatitis B from casual contact?", "a": "No, it is not spread by hugging, sharing food, or casual contact."}]},
+  "migraine": {"description": "Migraine is a neurological condition characterized by intense, throbbing headaches, often on one side of the head, sometimes accompanied by nausea, vomiting, and sensitivity to light and sound.","causes": ["Genetic predisposition","Hormonal changes","Certain foods and drinks (cheese, chocolate, alcohol)","Stress and lack of sleep","Sensory stimuli (bright lights, loud sounds)"],"symptoms": ["Severe, throbbing headache (often one-sided)","Nausea and vomiting","Sensitivity to light and sound","Visual disturbances (aura)","Fatigue"],"stages": ["Prodrome: Subtle changes hours or days before","Aura: Visual or sensory disturbances (not in all cases)","Attack: Severe headache phase","Postdrome: Fatigue, confusion after headache"],"prevention": ["Identify and avoid triggers","Maintain regular sleep and meal schedule","Manage stress","Stay hydrated"],"lifestyle_tips": ["Keep a headache diary to track triggers","Practice relaxation techniques","Exercise regularly"],"treatment_options": ["Over-the-counter pain relievers (acetaminophen, NSAIDs)","Triptans (prescription migraine medications)","Anti-nausea medications","Preventive medications (beta-blockers, anticonvulsants)"],"risk_factors": ["Family history of migraine","Female gender (hormonal influence)","Age (often starts in adolescence)"],"complications": ["Chronic migraine (15+ days/month)","Medication overuse headache","Reduced quality of life"],"when_to_seek_help": ["Sudden, severe headache (thunderclap)","Headache with fever, stiff neck, confusion","Frequent or worsening headaches"],"faqs": [{"q": "Can migraines be cured?", "a": "There is no cure, but symptoms can be managed with medication and lifestyle changes."},{"q": "Are migraines dangerous?", "a": "Most are not, but seek help for sudden, severe, or new types of headache."}]},
+  "anemia": {"description": "Anemia is a condition in which you lack enough healthy red blood cells to carry adequate oxygen to your body’s tissues. It can make you feel tired and weak.","causes": ["Iron deficiency (most common)","Vitamin B12 or folate deficiency","Chronic diseases (kidney disease, cancer)","Blood loss (injury, menstruation, ulcers)"],"symptoms": ["Fatigue and weakness","Pale or yellowish skin","Shortness of breath","Dizziness or lightheadedness","Cold hands and feet","Irregular heartbeat"],"stages": ["Mild: Few or no symptoms","Moderate: Noticeable fatigue, weakness","Severe: Shortness of breath, chest pain, fainting"],"prevention": ["Eat iron-rich foods (red meat, beans, spinach)","Take vitamin supplements if needed","Treat underlying causes of blood loss"],"lifestyle_tips": ["Eat a balanced diet with iron, B12, and folate","Avoid tea/coffee with meals (can reduce iron absorption)","Get regular blood tests if at risk"],"treatment_options": ["Iron supplements","Vitamin B12 or folate supplements","Treat underlying disease","Blood transfusion (in severe cases)"],"risk_factors": ["Women (menstruation, pregnancy)","Vegetarian/vegan diet","Chronic diseases","Elderly age"],"complications": ["Severe fatigue","Heart problems","Pregnancy complications","Delayed growth in children"],"when_to_seek_help": ["Shortness of breath at rest","Chest pain","Fainting or severe weakness"],"faqs": [{"q": "Can anemia be prevented?", "a": "Yes, with a healthy diet and treating underlying causes."},{"q": "Is anemia serious?", "a": "Mild anemia is common and treatable, but severe anemia can be dangerous if untreated."}]},
+  "chickenpox": {"description": "Chickenpox is a highly contagious viral infection causing an itchy, blister-like rash. It is most common in children but can affect adults.","causes": ["Varicella-zoster virus (VZV), spread by respiratory droplets or direct contact with rash."],"symptoms": ["Fever","Loss of appetite","Headache","Tiredness","Itchy, blister-like rash (starts on face/trunk, spreads)"],"stages": ["Incubation: 10-21 days after exposure","Prodrome: Mild fever, malaise","Rash: Red spots, then blisters, then scabs"],"prevention": ["Varicella (chickenpox) vaccine","Avoid contact with infected individuals"],"lifestyle_tips": ["Keep fingernails trimmed to prevent scratching","Wear loose, comfortable clothing","Use calamine lotion or oatmeal baths for itching"],"treatment_options": ["Antihistamines for itching","Acetaminophen for fever (avoid aspirin)","Antiviral medications (for high-risk cases)"],"risk_factors": ["No prior infection or vaccination","Weakened immune system","Pregnancy (risk to fetus)"],"complications": ["Bacterial skin infections","Pneumonia","Encephalitis (brain inflammation)"],"when_to_seek_help": ["Difficulty breathing","Rash in eyes or genitals","High fever or confusion"],"faqs": [{"q": "Can you get chickenpox twice?", "a": "It is rare, but possible. Most people have lifelong immunity after infection or vaccination."},{"q": "Is chickenpox dangerous for adults?", "a": "Yes, adults are at higher risk for severe complications."}]},
+  "covid_19": {"description": "COVID-19 is a respiratory illness caused by the SARS-CoV-2 virus. It ranges from mild cold-like symptoms to severe pneumonia and can be fatal, especially in high-risk groups.","causes": ["SARS-CoV-2 virus, spread by respiratory droplets, aerosols, and contact with contaminated surfaces."],"symptoms": ["Fever or chills","Cough","Shortness of breath","Fatigue","Loss of taste or smell","Muscle or body aches","Sore throat","Congestion or runny nose","Nausea or vomiting","Diarrhea"],"stages": ["Incubation: 2-14 days after exposure","Mild: Cold-like symptoms","Moderate: Pneumonia, persistent fever","Severe: Respiratory distress, hospitalization"],"prevention": ["COVID-19 vaccination","Wear masks in crowded or indoor settings","Practice hand hygiene","Maintain physical distancing","Ventilate indoor spaces"],"lifestyle_tips": ["Monitor symptoms and oxygen levels","Isolate if sick or exposed","Stay hydrated and rest","Follow public health guidelines"],"treatment_options": ["Supportive care (rest, fluids, fever reducers)","Antiviral medications (for severe cases)","Oxygen therapy or hospitalization if needed"],"risk_factors": ["Older age","Chronic diseases (heart, lung, diabetes)","Obesity","Weakened immune system"],"complications": ["Pneumonia","Acute respiratory distress syndrome (ARDS)","Blood clots","Long COVID (persistent symptoms)"],"when_to_seek_help": ["Difficulty breathing","Persistent chest pain or pressure","New confusion or inability to wake","Bluish lips or face"],"faqs": [{"q": "Can I get COVID-19 more than once?", "a": "Yes, reinfection is possible, but vaccination reduces risk of severe illness."},{"q": "How long should I isolate?", "a": "Follow local health guidelines, usually at least 5-10 days from symptom onset or positive test."}]},
+      "description": "The common cold and influenza (flu) are contagious viral infections affecting the respiratory tract. While both share similar symptoms, flu is usually more severe and can lead to complications, especially in vulnerable groups.",
+      "causes": [
+        "Cold: Rhinoviruses, coronaviruses, and others",
+        "Flu: Influenza A and B viruses",
+        "Spread by droplets from coughs, sneezes, or touching contaminated surfaces"
+      ],
+      "symptoms": [
+        "Runny or stuffy nose",
+        "Sore throat",
+        "Cough (dry or productive)",
+        "Sneezing",
+        "Body aches and muscle pain",
+        "Fatigue and weakness",
+        "Mild to high fever (more common in flu)",
+        "Headache",
+        "Chest discomfort",
+        "Loss of appetite",
+        "Chills and sweats",
+        "Nasal congestion"
+      ],
+      "stages": [
+        "Incubation: 1-3 days after exposure",
+        "Onset: Sudden for flu, gradual for cold",
+        "Peak: Symptoms most severe (2-4 days)",
+        "Recovery: Symptoms gradually improve"
+      ],
+      "prevention": [
+        "Wash hands frequently with soap and water",
+        "Avoid touching face with unwashed hands",
+        "Maintain distance from sick individuals",
+        "Get annual flu vaccination",
+        "Wear a mask in crowded places during flu season",
+        "Maintain good ventilation in indoor spaces",
+        "Exercise regularly to boost immunity",
+        "Get adequate sleep",
+        "Eat a balanced diet rich in vitamins C and D"
+      ],
+      "lifestyle_tips": [
+        "Stay home when sick to avoid spreading illness",
+        "Use tissues or elbow to cover coughs and sneezes",
+        "Disinfect commonly touched surfaces",
+        "Drink warm fluids (herbal teas, broths)",
+        "Use a humidifier to ease congestion"
+      ],
+      "treatment_options": [
+        "Rest and adequate sleep",
+        "Over-the-counter pain relievers (acetaminophen, ibuprofen)",
+        "Decongestants and throat lozenges",
+        "Humidifier use",
+        "Antiviral medications (for flu, if prescribed)",
+        "Saline nasal drops or sprays",
+        "Stay hydrated"
+      ],
+      "risk_factors": [
+        "Age (very young and elderly)",
+        "Weakened immune system",
+        "Chronic health conditions (asthma, diabetes, heart disease)",
+        "Pregnancy",
+        "Smoking",
+        "Lack of sleep or high stress"
+      ],
+      "duration": {
+        "cold": "7-10 days",
+        "flu": "5-7 days, with lingering fatigue up to 2 weeks"
+      },
+      "complications": {
+        "common": [
+          "Sinus infection",
+          "Ear infection",
+          "Bronchitis"
+        ],
+        "severe": [
+          "Pneumonia",
+          "Myocarditis (heart inflammation)",
+          "Encephalitis (brain inflammation)",
+          "Multi-organ failure"
+        ]
+      },
+      "when_to_seek_help": [
+        "Difficulty breathing or shortness of breath",
+        "Persistent chest pain or pressure",
+        "Severe muscle pain",
+        "Dehydration (dry mouth, little urination, dizziness)",
+        "Fever or cough that improves but then returns or worsens",
+        "Worsening of chronic medical conditions",
+        "Symptoms lasting more than 10 days",
+        "Severe sinus pain"
+      ],
+      "faqs": [
+        {
+          "q": "How can I tell the difference between a cold and the flu?",
+          "a": "Flu symptoms are usually more sudden and severe, with higher fever and body aches. Colds are milder and develop gradually."
+        },
+        {
+          "q": "Can antibiotics treat a cold or flu?",
+          "a": "No. Both are caused by viruses, so antibiotics are not effective."
+        },
+        {
+          "q": "When can I return to work or school?",
+          "a": "Wait until you are fever-free for at least 24 hours without medication and symptoms are improving."
+          }
+      ]
+    },
+    "diarrhea": {
+      "description": "Diarrhea is the passage of loose, watery stools more than three times a day. It can be acute (short-term) or chronic (lasting more than 2 weeks). Most cases are mild and resolve on their own, but severe or persistent diarrhea can be dangerous, especially in children and the elderly.",
+      "causes": [
+        "Viral infections (rotavirus, norovirus, adenovirus)",
+        "Bacterial infections (E. coli, Salmonella, Shigella, Campylobacter)",
+        "Parasitic infections (Giardia, Cryptosporidium)",
+        "Food intolerances (lactose, fructose)",
+        "Medications (antibiotics, antacids)",
+        "Chronic conditions (IBS, IBD, celiac disease)"
+      ],
+      "symptoms": [
+        "Frequent loose or watery stools",
+        "Abdominal cramps or pain",
+        "Nausea and vomiting",
+        "Fever",
+        "Dehydration (dry mouth, sunken eyes, little urination)",
+        "Urgent need to defecate",
+        "Bloating",
+        "Blood in stool (in severe cases)",
+        "Mucus in stool",
+        "Loss of appetite",
+        "Weakness and fatigue"
+      ],
+      "stages": [
+        "Acute: Sudden onset, usually resolves in a few days",
+        "Persistent: Lasts 2-4 weeks",
+        "Chronic: Lasts more than 4 weeks, may indicate underlying condition"
+      ],
+      "prevention": [
+        "Wash hands thoroughly with soap and water",
+        "Drink clean, safe water",
+        "Eat properly cooked and fresh foods",
+        "Avoid raw or undercooked meat",
+        "Refrigerate perishable foods promptly",
+        "Maintain good kitchen hygiene",
+        "Use separate cutting boards for raw meat and vegetables",
+        "Avoid sharing personal items",
+        "Practice food safety when traveling"
+      ],
+      "lifestyle_tips": [
+        "Drink oral rehydration solutions (ORS) to replace lost fluids and electrolytes",
+        "Eat small, frequent meals (BRAT diet: Bananas, Rice, Applesauce, Toast)",
+        "Avoid dairy, fatty, or spicy foods during acute episodes",
+        "Rest and avoid strenuous activity",
+        "Monitor for signs of dehydration"
+      ],
+      "treatment_options": [
+        "Oral rehydration solutions (ORS)",
+        "Clear fluids intake (water, broths, electrolyte drinks)",
+        "Gradual return to eating",
+        "Probiotics (may help restore gut flora)",
+        "Over-the-counter anti-diarrheal medications (loperamide, bismuth subsalicylate)",
+        "BRAT diet (Bananas, Rice, Applesauce, Toast)",
+        "Electrolyte replacement"
+      ],
+      "risk_factors": [
+        "Recent antibiotic use",
+        "Weakened immune system",
+        "Travel to areas with poor sanitation",
+        "Food allergies or intolerances",
+        "Inflammatory bowel disease (IBD)"
+      ],
+      "complications": [
+        "Severe dehydration",
+        "Kidney failure",
+        "Malnutrition",
+        "Electrolyte imbalance"
+      ],
+      "when_to_seek_help": [
+        "Severe abdominal or rectal pain",
+        "Blood in stool",
+        "Black, tarry stools",
+        "Fever above 102°F (39°C)",
+        "Severe dehydration signs (dizziness, dry mouth, little urination)",
+        "Diarrhea lasting more than 3 days",
+        "Inability to keep liquids down",
+        "Symptoms of severe dehydration (excessive thirst, dry mouth, little or no urination, severe weakness)",
+        "Signs of infection (high fever, confusion, rapid heartbeat)"
+      ],
+      "faqs": [
+        {
+          "q": "Should I stop eating if I have diarrhea?",
+          "a": "No. Eat small, bland meals as tolerated. Avoid dairy, fatty, or spicy foods until symptoms improve."
+        },
+        {
+          "q": "When should I see a doctor?",
+          "a": "If you have blood in your stool, high fever, severe pain, or signs of dehydration, seek medical attention immediately."
+        },
+        {
+          "q": "Can I take anti-diarrheal medicine?",
+          "a": "Over-the-counter medicines can help, but avoid them if you have bloody diarrhea or high fever unless advised by a doctor."
+        }
+      ]
+    },
+    "diabetes": {
+      "symptoms": {
+        "common": [
+          "increased thirst and urination",
+          "extreme hunger",
+          "unexplained weight loss",
+          "fatigue",
+          "blurred vision",
+          "slow-healing sores",
+          "frequent infections"
+        ],
+        "type1_specific": [
+          "rapid onset",
+          "mood changes",
+          "irritability",
+          "ketones in urine"
+        ],
+        "type2_specific": [
+          "gradual onset",
+          "numbness in hands/feet",
+          "darkened skin in certain areas",
+          "increased risk of infections"
+        ]
+      },
+      "prevention": {
+        "lifestyle_changes": [
+          "maintain a healthy weight",
+          "exercise at least 150 minutes per week",
+          "eat a balanced, low-glycemic diet",
+          "limit processed foods and sugary drinks",
+          "get regular health checkups",
+          "manage stress levels",
+          "get adequate sleep"
+        ],
+        "dietary_recommendations": [
+          "control portion sizes",
+          "choose whole grains over refined grains",
+          "include lean proteins",
+          "eat plenty of vegetables",
+          "limit alcohol consumption",
+          "monitor carbohydrate intake"
+        ]
+      },
+      "when_to_seek_help": [
+        "blood sugar readings consistently above target range",
+        "symptoms of diabetic ketoacidosis",
+        "frequent unexplained high or low blood sugar",
+        "wounds that don't heal",
+        "changes in vision",
+        "persistent infections",
+        "severe dehydration",
+        "loss of consciousness"
+      ],
+      "description": "Diabetes is a chronic metabolic disorder characterized by high blood sugar levels. It occurs either when the pancreas doesn't produce enough insulin (Type 1) or when the body becomes resistant to insulin (Type 2).",
+      "types": {
+        "type1": {
+          "description": "An autoimmune condition where the body attacks insulin-producing cells",
+          "risk_factors": [
+            "family history",
+            "certain genes",
+            "age (usually develops in children/young adults)",
+            "environmental factors"
+          ]
+        },
+        "type2": {
+          "description": "A condition where the body becomes resistant to insulin",
+          "risk_factors": [
+            "obesity",
+            "physical inactivity",
+            "family history",
+            "age over 45",
+            "certain ethnicities",
+            "gestational diabetes history"
+          ]
+        }
+      "complications": {
+        "short_term": [
+          "hypoglycemia",
+          "hyperglycemia",
+          "diabetic ketoacidosis"
+        ],
+        "long_term": [
+          "cardiovascular disease",
+          "nerve damage (neuropathy)",
+          "kidney damage (nephropathy)",
+          "eye damage (retinopathy)",
+          "foot damage",
+          "skin conditions",
+          "hearing impairment"
+        ]
+      },
+      "monitoring": {
+        "regular_tests": [
+          "daily blood glucose monitoring",
+          "A1C test every 3-6 months",
+          "annual eye exam",
+          "regular foot exams",
+          "kidney function tests",
+          "cholesterol levels"
+        ],
+        "target_ranges": {
+          "before_meals": "80-130 mg/dL",
+          "after_meals": "less than 180 mg/dL",
+          "A1C": "less than 7%"
+        }
+      }
+    },
+    "hypertension": {
+      "symptoms": {
+        "primary_symptoms": [
+          "headaches (particularly in the morning)",
+          "dizziness or vertigo",
+          "chest pain or pressure",
+          "shortness of breath",
+          "nosebleeds",
+          "facial flushing",
+          "blood spots in eyes"
+        ],
+        "severe_symptoms": [
+          "severe headache",
+          "severe anxiety",
+          "shortness of breath",
+          "nosebleeds",
+          "severe chest pain",
+          "irregular heartbeat",
+          "blood in urine"
+        ]
+      },
+      "prevention": {
+        "lifestyle_changes": [
+          "reduce sodium intake (less than 2,300mg daily)",
+          "regular physical activity (30 minutes daily)",
+          "maintain healthy weight",
+          "limit alcohol consumption",
+          "quit smoking",
+          "manage stress through relaxation techniques",
+          "get adequate sleep"
+        ],
+        "dietary_approaches": [
+          "follow DASH diet",
+          "increase potassium-rich foods",
+          "reduce caffeine intake",
+          "limit processed foods",
+          "increase fruits and vegetables",
+          "choose low-fat dairy products"
+        ]
+      },
+      "when_to_seek_help": [
+        "blood pressure readings consistently above 130/80 mmHg",
+        "severe headache with confusion",
+        "chest pain or difficulty breathing",
+        "vision problems or blurred vision",
+        "irregular heartbeat",
+        "blood in urine",
+        "dizziness or fainting"
+      ],
+      "description": "Hypertension, or high blood pressure, is a common condition where the long-term force of blood against artery walls is high enough to potentially cause health problems. It often develops over many years and can damage blood vessels and organs, particularly the heart, brain, kidneys, and eyes.",
+      "blood_pressure_categories": {
+        "normal": "Less than 120/80 mmHg",
+        "elevated": "120-129/Less than 80 mmHg",
+        "stage1": "130-139/80-89 mmHg",
+        "stage2": "140/90 mmHg or higher",
+        "crisis": "Higher than 180/120 mmHg"
+      },
+      "risk_factors": {
+        "non_modifiable": [
+          "age",
+          "family history",
+          "race/ethnicity",
+          "chronic kidney disease"
+        ],
+        "modifiable": [
+          "obesity",
+          "high sodium diet",
+          "physical inactivity",
+          "excessive alcohol",
+          "smoking",
+          "stress"
+        ]
+      },
+      "complications": [
+        "heart attack or stroke",
+        "aneurysm",
+        "heart failure",
+        "weakened blood vessels in kidneys",
+        "thickened blood vessels in eyes",
+        "metabolic syndrome",
+        "dementia"
+      ],
+      "monitoring": {
+        "home_monitoring": [
+          "measure at same time daily",
+          "avoid caffeine 30 minutes before",
+          "empty bladder first",
+          "sit correctly during measurement",
+          "take multiple readings"
+        ],
+        "frequency": {
+          "normal": "once a year",
+          "elevated": "every 3-6 months",
+          "high": "as recommended by healthcare provider"
+        }
+      }
+    },
+    "malaria": {
+      "symptoms": {
+        "early_symptoms": [
+          "fever",
+          "chills",
+          "headache",
+          "sweats",
+          "fatigue",
+          "nausea",
+          "vomiting"
+        ],
+        "severe_symptoms": [
+          "severe anemia",
+          "cerebral malaria",
+          "organ failure",
+          "breathing problems",
+          "low blood sugar",
+          "acute kidney injury"
+        ],
+        "common_patterns": {
+          "timing": "Symptoms typically appear 10-15 days after infection",
+          "cycles": "Fever cycles every 24-48 hours depending on species"
+        }
+      },
+      "prevention": {
+        "personal_protection": [
+          "use long-lasting insecticidal nets (LLINs)",
+          "apply EPA-registered insect repellent",
+          "wear long sleeves and pants",
+          "stay in screened or air-conditioned rooms"
+        ],
+        "environmental_control": [
+          "eliminate standing water sources",
+          "use indoor residual spraying",
+          "maintain screens on windows and doors",
+          "clear vegetation near living areas"
+        ],
+        "medication": [
+          "antimalarial drugs when traveling",
+          "complete full course of preventive medication",
+          "start medication before entering malaria-risk areas"
+        ]
+      },
+      "when_to_seek_help": [
+        "fever with chills in malaria-prone areas",
+        "symptoms within 1 year of travel to endemic area",
+        "severe headache with fever",
+        "confusion or difficulty speaking",
+        "seizures",
+        "difficulty breathing",
+        "severe weakness or inability to sit/stand"
+      ],
+      "description": "Malaria is a life-threatening disease caused by parasites transmitted through the bites of infected female Anopheles mosquitoes. The severity of malaria varies based on the species of plasmodium causing the infection.",
+      "transmission": {
+        "primary_vector": "Female Anopheles mosquito",
+        "risk_factors": [
+          "living in or visiting endemic areas",
+          "poverty",
+          "lack of knowledge",
+          "limited access to healthcare",
+          "resistance to antimalarial drugs"
+        ],
+        "high_risk_groups": [
+          "young children",
+          "pregnant women",
+          "non-immune travelers",
+          "people with HIV/AIDS"
+        ]
+      },
+      "diagnosis": {
+        "methods": [
+          "microscopy blood tests",
+          "rapid diagnostic tests (RDTs)",
+          "molecular testing",
+          "serology"
+        ],
+        "important_factors": [
+          "travel history",
+          "symptoms onset timing",
+          "previous malaria episodes",
+          "prevention measures used"
+        ]
+      },
+      "treatment": {
+        "principles": [
+          "early diagnosis and prompt treatment",
+          "appropriate antimalarial combination therapy",
+          "supportive care",
+          "monitoring for complications"
+        ],
+        "medications": {
+          "uncomplicated": [
+            "artemisinin-based combination therapy (ACT)",
+            "chloroquine (in sensitive areas)",
+            "atovaquone-proguanil"
+          ],
+          "severe": [
+            "intravenous artesunate",
+            "intensive care support",
+            "treatment of complications"
+          ]
+        }
+      },
+      "complications": [
+        "cerebral malaria",
+        "severe anemia",
+        "acute respiratory distress syndrome",
+        "organ failure",
+        "low blood sugar",
+        "acute kidney injury",
+        "shock"
+      ]
+    }
+  },
+  "preventive_health": {
+    "general_hygiene": {
+      "daily_practices": [
+        "Wash hands with soap for at least 20 seconds, especially before meals and after bathroom use",
+        "Brush teeth twice daily and floss once daily",
+        "Take regular baths or showers",
+        "Keep nails clean and properly trimmed",
+        "Wear clean clothes and change them daily",
+        "Use tissue or elbow when coughing or sneezing",
+        "Clean and disinfect frequently touched surfaces"
+      ],
+      "personal_care": [
+        "Regular dental check-ups every 6 months",
+        "Change toothbrush every 3-4 months",
+        "Use mild soap and clean towels",
+        "Keep personal items separate",
+        "Maintain clean and dry feet"
+      ],
+      "home_hygiene": [
+        "Regular cleaning and disinfection of bathroom and kitchen",
+        "Proper waste disposal",
+        "Good ventilation in living spaces",
+        "Regular washing of bedding and towels",
+        "Pet hygiene if applicable"
+      ]
+    },
+    "nutrition": {
+      "dietary_guidelines": [
+        "Eat at least 5 servings of various fruits and vegetables daily",
+        "Choose whole grains over refined grains",
+        "Include lean proteins (fish, poultry, legumes)",
+        "Limit processed foods and added sugars",
+        "Reduce sodium intake to less than 2300mg daily",
+        "Drink 8-10 glasses of water daily",
+        "Include healthy fats from nuts, seeds, and olive oil"
+      ],
+      "meal_planning": [
+        "Plan balanced meals with all food groups",
+        "Control portion sizes",
+        "Eat regular meals at consistent times",
+        "Prepare more meals at home",
+        "Read nutrition labels carefully"
+      ],
+      "specific_nutrients": {
+        "proteins": "0.8g per kg of body weight daily",
+        "fiber": "25-30g daily",
+        "calcium": "1000-1200mg daily",
+        "iron": "18mg daily (women), 8mg daily (men)",
+        "vitamin_D": "600-800 IU daily"
+      },
+      "foods_to_limit": [
+        "Processed meats",
+        "Sugary beverages",
+        "Trans fats",
+        "Excessive alcohol",
+        "High-sodium foods"
+      ]
+    },
+    "exercise": {
+      "weekly_recommendations": {
+        "moderate_activity": "150 minutes per week",
+        "vigorous_activity": "75 minutes per week",
+        "strength_training": "2-3 sessions per week",
+        "flexibility_work": "2-3 sessions per week"
+      },
+      "types_of_exercise": {
+        "cardio": [
+          "Walking",
+          "Cycling",
+          "Swimming",
+          "Dancing",
+          "Jogging"
+        ],
+        "strength": [
+          "Weight training",
+          "Bodyweight exercises",
+          "Resistance bands",
+          "Yoga",
+          "Pilates"
+        ],
+        "flexibility": [
+          "Stretching",
+          "Yoga",
+          "Tai Chi"
+        ]
+      },
+      "safety_tips": [
+        "Start slowly and progress gradually",
+        "Warm up before exercise",
+        "Stay hydrated",
+        "Use proper form",
+        "Listen to your body",
+        "Cool down after exercise"
+      ],
+      "benefits": [
+        "Weight management",
+        "Improved cardiovascular health",
+        "Better mental health",
+        "Stronger bones and muscles",
+        "Enhanced immune function",
+        "Better sleep quality"
+      ]
+    },
+    "mental_health": {
+      "daily_practices": [
+        "Get 7-9 hours of quality sleep",
+        "Practice mindfulness or meditation",
+        "Maintain social connections",
+        "Engage in enjoyable activities",
+        "Set realistic goals",
+        "Take regular breaks from work"
+      ],
+      "stress_management": {
+        "techniques": [
+          "Deep breathing exercises",
+          "Progressive muscle relaxation",
+          "Guided imagery",
+          "Journal writing",
+          "Time management",
+          "Setting boundaries"
+        ],
+        "lifestyle_factors": [
+          "Regular exercise",
+          "Healthy diet",
+          "Adequate sleep",
+          "Limited screen time",
+          "Time in nature",
+          "Creative activities"
+        ]
+      },
+      "warning_signs": [
+        "Persistent sad or anxious mood",
+        "Changes in sleep patterns",
+        "Loss of interest in activities",
+        "Difficulty concentrating",
+        "Physical symptoms without clear cause",
+        "Thoughts of self-harm"
+      ],
+      "support_resources": [
+        "Mental health professionals",
+        "Support groups",
+        "Crisis helplines",
+        "Online therapy options",
+        "Community resources",
+        "Family and friends"
+      ]
+    },
+    "sleep_hygiene": {
+      "recommended_practices": [
+        "Maintain consistent sleep schedule",
+        "Create a relaxing bedtime routine",
+        "Optimize sleep environment (dark, quiet, cool)",
+        "Limit screen time before bed",
+        "Avoid large meals close to bedtime",
+        "Exercise regularly but not too close to bedtime"
+      ],
+      "things_to_avoid": [
+        "Caffeine late in the day",
+        "Alcohol before bedtime",
+        "Long daytime naps",
+        "Working in bed",
+        "Bright lights in evening"
+      ]
+    }
+  },
+  "vaccination_schedules": {
+    "children": {
+      "birth": {
+        "vaccines": ["BCG", "Hepatitis B", "OPV-0"],
+        "descriptions": {
+          "BCG": "Protects against tuberculosis",
+          "Hepatitis B": "First dose of hepatitis B protection",
+          "OPV-0": "First oral polio vaccine dose"
+        },
+        "important_notes": [
+          "Must be given within 24 hours of birth if possible",
+          "Monitor for any immediate reactions",
+          "Keep vaccination record safe"
+        ]
+      },
+      "6_weeks": {
+        "vaccines": ["DPT-1", "OPV-1", "Hepatitis B-2", "Hib-1", "Rotavirus-1", "PCV-1"],
+        "descriptions": {
+          "DPT-1": "First dose protecting against Diphtheria, Pertussis, and Tetanus",
+          "Hib-1": "Protects against Haemophilus influenzae type b",
+          "Rotavirus-1": "Protects against severe diarrheal disease",
+          "PCV-1": "Protects against pneumococcal diseases"
+        }
+      },
+      "10_weeks": {
+        "vaccines": ["DPT-2", "OPV-2", "Hib-2", "Rotavirus-2", "PCV-2"],
+        "descriptions": {
+          "DPT-2": "Second dose of DPT series",
+          "PCV-2": "Second pneumococcal vaccine dose"
+        }
+      },
+      "14_weeks": {
+        "vaccines": ["DPT-3", "OPV-3", "Hib-3", "Rotavirus-3", "PCV-3", "IPV-1"],
+        "descriptions": {
+          "IPV-1": "Inactivated polio vaccine for additional protection"
+        }
+      },
+      "6_months": {
+        "vaccines": ["Influenza-1"],
+        "descriptions": {
+          "Influenza-1": "First flu shot, to be repeated annually"
+        },
+        "notes": "Repeat annually before flu season"
+      },
+      "9_months": {
+        "vaccines": ["Measles-1", "JE-1"],
+        "descriptions": {
+          "JE-1": "Protects against Japanese Encephalitis in endemic areas"
+        }
+      },
+      "12_months": {
+        "vaccines": ["Hepatitis A-1", "Influenza-2"],
+        "descriptions": {
+          "Hepatitis A-1": "First dose of Hepatitis A protection"
+        }
+      },
+      "15_months": {
+        "vaccines": ["MMR-1", "Varicella-1", "PCV Booster"],
+        "descriptions": {
+          "MMR-1": "Protects against Measles, Mumps, and Rubella",
+          "Varicella-1": "Protects against chickenpox"
+        }
+      },
+      "18_months": {
+        "vaccines": ["DPT Booster", "OPV Booster", "Hepatitis A-2"],
+        "descriptions": {
+          "DPT Booster": "Reinforces protection against Diphtheria, Pertussis, and Tetanus"
+        }
+      },
+      "2_years": {
+        "vaccines": ["Typhoid"],
+        "descriptions": {
+          "Typhoid": "Protects against typhoid fever"
+        }
+      },
+      "4_6_years": {
+        "vaccines": ["DPT-2 Booster", "OPV-2 Booster", "MMR-2", "Varicella-2"],
+        "descriptions": {
+          "MMR-2": "Second dose completes MMR series",
+          "Varicella-2": "Completes chickenpox protection"
+        }
+      }
+    },
+    "adults": {
+      "annual": {
+        "vaccines": ["Influenza"],
+        "recommendations": "Get flu shot before flu season",
+        "high_risk_groups": [
+          "Healthcare workers",
+          "Elderly",
+          "Pregnant women",
+          "Those with chronic conditions"
+        ]
+      },
+      "every_10_years": {
+        "vaccines": ["Tdap/Td"],
+        "descriptions": {
+          "Tdap": "Tetanus, diphtheria, and pertussis booster",
+          "Td": "Tetanus and diphtheria booster"
+        }
+      },
+      "one_time": {
+        "vaccines": ["Hepatitis B series", "MMR", "Varicella"],
+        "notes": "If not received during childhood or no immunity"
+      },
+      "special_groups": {
+        "pregnant_women": {
+          "vaccines": ["Tdap", "Influenza"],
+          "timing": {
+            "Tdap": "27-36 weeks of each pregnancy",
+            "Influenza": "Any trimester during flu season"
+          }
+        },
+        "elderly": {
+          "vaccines": ["Pneumococcal", "Shingles", "High-dose Influenza"],
+          "age_recommendations": {
+            "Pneumococcal": "65 years and older",
+            "Shingles": "50 years and older",
+            "High-dose Influenza": "65 years and older"
+          }
+        },
+        "immunocompromised": {
+          "vaccines": ["Pneumococcal", "Meningococcal", "Hib"],
+          "notes": "Consult healthcare provider for specific schedule"
+        },
+        "travelers": {
+          "common_vaccines": ["Yellow fever", "Japanese Encephalitis", "Typhoid", "Hepatitis A"],
+          "recommendations": [
+            "Check CDC travel recommendations",
+            "Get vaccines 4-6 weeks before travel",
+            "Keep vaccination record while traveling"
+          ]
+        }
+      }
+    }
+  },
+  "emergency_contacts": {
+    "national_helplines": {
+      "ambulance": {
+        "number": "108",
+        "services": [
+          "Medical emergencies",
+          "Accident response",
+          "Emergency transport"
+        ],
+        "when_to_call": [
+          "Life-threatening emergencies",
+          "Severe accidents",
+          "Heart attack or stroke symptoms",
+          "Severe bleeding"
+        ]
+      },
+      "medical_emergency": {
+        "number": "102",
+        "services": [
+          "Non-critical medical transport",
+          "Medical advice",
+          "Healthcare facility information"
+        ]
+      },
+      "poison_control": {
+        "number": "1800-11-0085",
+        "services": [
+          "Poison exposure guidance",
+          "Treatment advice",
+          "Emergency protocols"
+        ],
+        "information_needed": [
+          "Age and weight of patient",
+          "Name of substance",
+          "Amount consumed",
+          "Time since exposure"
+        ]
+      }
+    },
+    "disease_specific": {
+      "covid_helpline": {
+        "number": "1075",
+        "services": [
+          "COVID-19 information",
+          "Testing guidance",
+          "Vaccination support",
+          "Hospital bed availability"
+        ]
+      },
+      "mental_health": {
+        "number": "1800-599-0019",
+        "services": [
+          "24/7 counseling",
+          "Crisis intervention",
+          "Suicide prevention",
+          "Mental health resources"
+        ]
+      },
+      "aids_helpline": {
+        "number": "1097",
+        "services": [
+          "HIV/AIDS information",
+          "Testing guidance",
+          "Treatment support",
+          "Confidential counseling"
+        ]
+      }
+    },
+    "regional_hospitals": {
+      "verify_information": "Contact your local health department for current information",
+      "recommended_details_to_keep": [
+        "Nearest emergency room location",
+        "Local clinic contact numbers",
+        "Family doctor's contact",
+        "Blood bank contacts",
+        "Local pharmacy numbers"
+      ]
+    }
+  }
+}

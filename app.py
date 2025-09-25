@@ -1,3 +1,4 @@
+from bson.objectid import ObjectId
 from flask import Flask, request, jsonify, render_template, session, redirect, url_for
 from services.image_diagnosis_service import mock_image_classifier
 from services.response_formatter import ResponseFormatter
@@ -11,6 +12,8 @@ from chatbot.health_bot import HealthChatbot
 from datetime import datetime, date
 import os
 import logging
+from pymongo import MongoClient
+from geminiservice import find_hospitals_with_gemini # NEW: Import the real Gemini service
 
 app = Flask(__name__)
 app.config.from_object(Config)
@@ -36,6 +39,12 @@ def get_locale():
 
 # Initialize database
 init_db(app)
+
+# MongoDB connection setup
+MONGO_URI = "mongodb+srv://dylan:dylanpalash@cluster0.lypmss7.mongodb.net/?retryWrites=true&w=majority&appName=Cluster0"  # Change if using Atlas or different host
+client = MongoClient(MONGO_URI)
+db = client['health_website']  # Database name
+users_collection = db['users']  # Collection for user data
 
 # Initialize Twilio client
 twilio_client = None
@@ -265,6 +274,74 @@ def set_language(language=None):
     if language in Config.SUPPORTED_LANGUAGES:
         session['language'] = language
     return redirect(request.referrer or url_for('home'))
+
+@app.route('/login', methods=['GET', 'POST'])
+def login():
+    error = None
+    phone = ''
+    aadhaar = ''
+    if request.method == 'POST':
+        phone = request.form.get('phone', '').strip()
+        aadhaar = request.form.get('aadhaar', '').strip()
+        if not (phone.isdigit() and len(phone) == 10):
+            error = "Invalid phone number. Must be 10 digits."
+        elif not (aadhaar.isdigit() and len(aadhaar) == 12):
+            error = "Invalid Aadhaar number. Must be 12 digits."
+        else:
+            user = users_collection.find_one({'phone': phone, 'aadhaar': aadhaar})
+            if user:
+                session['user_id'] = str(user['_id'])
+                return redirect(url_for('dashboard'))
+            else:
+                # Instead of error, suggest registration
+                return render_template('login.html', error="User not found. Please register.", mode='login', phone=phone, aadhaar=aadhaar)
+    return render_template('login.html', error=error, mode='login', phone=phone, aadhaar=aadhaar)
+
+@app.route('/register', methods=['GET', 'POST'])
+def register():
+    error = None
+    phone = ''
+    aadhaar = ''
+    if request.method == 'POST':
+        phone = request.form.get('phone', '').strip()
+        aadhaar = request.form.get('aadhaar', '').strip()
+        if not (phone.isdigit() and len(phone) == 10):
+            error = "Invalid phone number. Must be 10 digits."
+        elif not (aadhaar.isdigit() and len(aadhaar) == 12):
+            error = "Invalid Aadhaar number. Must be 12 digits."
+        elif users_collection.find_one({'phone': phone, 'aadhaar': aadhaar}):
+            error = "User already exists. Please login."
+        else:
+            # Insert new user with more concise and structured mock data
+            user_data = {
+                'phone': phone,
+                'aadhaar': aadhaar,
+                'name': 'New User', # Add a default name
+                'health_data': {
+                    'weight': '75', # Use numbers for easier processing
+                    'height': '180',
+                    'blood_pressure': '120/80',
+                    'blood_group': 'O+'
+                },
+                'symptoms': [
+                    {'symptom': 'Headache', 'severity': 'Mild', 'notes': 'Started after work.', 'datetime': '2025-09-24T18:00:00Z'},
+                    {'symptom': 'Fatigue', 'severity': 'Moderate', 'notes': 'Felt tired all day.', 'datetime': '2025-09-25T10:00:00Z'}
+                ],
+                'metrics': {
+                    'steps': 5280,
+                    'sleep': 6.5,
+                    'calories': 2100
+                }
+            }
+            result = users_collection.insert_one(user_data)
+            session['user_id'] = str(result.inserted_id)
+            return redirect(url_for('dashboard'))
+    return render_template('login.html', mode='register')
+
+@app.route('/logout')
+def logout():
+    session.clear()
+    return redirect(url_for('login'))
 
 @app.route('/webhook/whatsapp', methods=['POST'])
 def whatsapp_webhook():
@@ -501,21 +578,21 @@ def handle_outbreak_alerts():
 
 @app.route('/dashboard')
 def dashboard():
-    """Admin dashboard."""
-    current_locale = get_locale()
-    
-    # Set up translation context manually
-    with app.app_context():
-        # Create a simple gettext function that works with our setup
-        def _(text):
-            if current_locale in translations and text in translations[current_locale]:
-                return translations[current_locale][text]
-            return text
-        
-        return render_template('dashboard.html',
-                             get_locale=lambda: current_locale,
-                             gettext=_,
-                             config=Config)
+    if 'user_id' not in session:
+        return redirect(url_for('login'))
+
+    user = users_collection.find_one({'_id': ObjectId(session['user_id'])})
+    if not user:
+        return redirect(url_for('login'))
+
+    health_data = user.get('health_data', {
+        'weight': 'N/A',
+        'height': 'N/A',
+        'blood_pressure': 'N/A',
+        'last_checkup': 'N/A'
+    })
+
+    return render_template('health_dashboard.html', current_user=user, health_data=health_data)
 
 @app.route('/api/test-chatbot', methods=['POST'])
 def test_chatbot():
@@ -569,6 +646,78 @@ def image_diagnosis():
     filename = image.filename or ''
     feedback = mock_image_classifier(image_bytes, language=language, filename=filename)
     return jsonify({'feedback': feedback})
+
+@app.route('/api/user/health', methods=['GET'])
+def get_user_health():
+    if 'user_id' not in session:
+        return jsonify({'error': 'Unauthorized'}), 401
+    user = users_collection.find_one({'_id': ObjectId(session['user_id'])})
+    if not user:
+        return jsonify({'error': 'User not found'}), 404
+    # Return all health data (mock or real)
+    return jsonify({
+        'name': user.get('name', 'User'),
+        'health_data': user.get('health_data', {}),
+        'symptoms': user.get('symptoms', []),
+        'metrics': user.get('metrics', {}),
+        # Add more fields as needed
+    })
+
+@app.route('/api/user/symptom', methods=['POST'])
+def add_symptom():
+    if 'user_id' not in session:
+        return jsonify({'error': 'Unauthorized'}), 401
+    data = request.json
+    symptom = {
+        'symptom': data.get('symptom'),
+        'severity': data.get('severity'),
+        'notes': data.get('notes', ''),
+        'datetime': data.get('datetime')
+    }
+    users_collection.update_one(
+        {'_id': ObjectId(session['user_id'])},
+        {'$push': {'symptoms': symptom}}
+    )
+    return jsonify({'success': True, 'symptom': symptom})
+
+@app.route('/api/user/health', methods=['POST'])
+def update_user_health():
+    if 'user_id' not in session:
+        return jsonify({'error': 'Unauthorized'}), 401
+    
+    data = request.json
+    users_collection.update_one(
+        {'_id': ObjectId(session['user_id'])},
+        {'$set': {
+            'health_data.weight': data.get('weight'),
+            'health_data.height': data.get('height'),
+            'health_data.blood_pressure': data.get('blood_pressure'),
+            'health_data.blood_group': data.get('blood_group')
+        }}
+    )
+    return jsonify({'success': True, 'message': 'Health data updated.'})
+
+@app.route('/api/nearby-hospitals', methods=['POST'])
+def find_nearby_hospitals():
+    if 'user_id' not in session:
+        return jsonify({'error': 'Unauthorized'}), 401
+    
+    data = request.json
+    lat = data.get('latitude')
+    lon = data.get('longitude')
+
+    if not lat or not lon:
+        return jsonify({'error': 'Latitude and longitude are required.'}), 400
+
+    # UPDATED: Call the real Gemini function instead of the mock one
+    hospitals = find_hospitals_with_gemini(lat, lon)
+    
+    if not hospitals:
+        # Handle cases where the API returns no data or an error
+        return jsonify({'error': 'Could not retrieve hospital data from the service.'}), 500
+        
+    return jsonify(hospitals)
+
 
 if __name__ == '__main__':
     port = int(os.environ.get('PORT', Config.PORT))
