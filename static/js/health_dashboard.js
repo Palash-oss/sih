@@ -827,6 +827,86 @@ async function loadDashboard() {
     }
 }
 
+let weightChart, bmiChart;
+
+document.addEventListener('DOMContentLoaded', function() {
+    // Only attach if the metrics form exists
+    const metricsForm = document.getElementById('metricsForm');
+    if (metricsForm) {
+        metricsForm.onsubmit = async function(e) {
+            e.preventDefault();
+            const weight = parseFloat(document.getElementById('weight').value);
+            const height = parseFloat(document.getElementById('height').value);
+            await fetch('/api/record-metrics', {
+                method: 'POST',
+                headers: {'Content-Type': 'application/json'},
+                body: JSON.stringify({weight, height})
+            });
+            loadMetrics();
+            metricsForm.reset();
+        };
+        loadMetrics();
+    }
+});
+
+async function loadMetrics() {
+    const res = await fetch('/api/user-metrics');
+    const data = await res.json();
+    if (!Array.isArray(data)) return;
+
+    const dates = data.map(m => new Date(m.timestamp));
+    const weights = data.map(m => m.weight);
+    const bmis = data.map(m => m.weight / Math.pow(m.height/100, 2));
+
+    // Destroy previous charts if they exist
+    if (weightChart) weightChart.destroy();
+    if (bmiChart) bmiChart.destroy();
+
+    // Weight chart
+    weightChart = new Chart(document.getElementById('weightChart'), {
+        type: 'line',
+        data: {
+            labels: dates,
+            datasets: [{
+                label: 'Weight (kg)',
+                data: weights,
+                borderColor: '#5E936C',
+                backgroundColor: 'rgba(93,218,151,0.2)',
+                tension: 0.3,
+                fill: true
+            }]
+        },
+        options: {
+            scales: {
+                x: { type: 'time', time: { unit: 'day' }, title: { display: true, text: 'Date' } },
+                y: { title: { display: true, text: 'Weight (kg)' } }
+            }
+        }
+    });
+
+    // BMI chart
+    bmiChart = new Chart(document.getElementById('bmiChart'), {
+        type: 'line',
+        data: {
+            labels: dates,
+            datasets: [{
+                label: 'BMI',
+                data: bmis,
+                borderColor: '#FF6B6B',
+                backgroundColor: 'rgba(255,107,107,0.2)',
+                tension: 0.3,
+                fill: true
+            }]
+        },
+        options: {
+            scales: {
+                x: { type: 'time', time: { unit: 'day' }, title: { display: true, text: 'Date' } },
+                y: { title: { display: true, text: 'BMI' } }
+            }
+        }
+    });
+}
+
 document.addEventListener('DOMContentLoaded', function () {
     // Add these new elements to your existing 'elements' object
     const elements = {

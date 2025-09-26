@@ -12,6 +12,9 @@ from chatbot.health_bot import HealthChatbot
 from datetime import datetime, date
 import os
 import logging
+from flask import Flask, request, jsonify, session
+from pymongo import MongoClient
+from datetime import datetime, date
 from pymongo import MongoClient
 from geminiservice import find_hospitals_with_gemini # NEW: Import the real Gemini service
 
@@ -737,6 +740,38 @@ def get_user_symptoms():
             'timestamp': s['timestamp'].isoformat(),
         } for s in user_symptoms]
     })
+
+
+
+
+
+@app.route('/api/record-metrics', methods=['POST'])
+def record_metrics():
+    if 'user_id' not in session:
+        return jsonify({'error': 'Not logged in'}), 401
+    data = request.get_json()
+    weight = float(data['weight'])
+    height = float(data['height'])
+    db.metrics.insert_one({
+        'user_id': session['user_id'],
+        'weight': weight,
+        'height': height,
+        'timestamp': datetime.utcnow()
+    })
+    return jsonify({'success': True})
+
+@app.route('/api/user-metrics')
+def user_metrics():
+    if 'user_id' not in session:
+        return jsonify({'error': 'Not logged in'}), 401
+    metrics = list(db.metrics.find({'user_id': session['user_id']}).sort('timestamp', 1))
+    return jsonify([
+        {
+            'weight': m['weight'],
+            'height': m['height'],
+            'timestamp': m['timestamp'].isoformat()
+        } for m in metrics
+    ])
 
 
 if __name__ == '__main__':

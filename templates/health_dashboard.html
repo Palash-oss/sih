@@ -81,8 +81,34 @@
                         <h6 class="mb-3">Symptom History</h6>
                         <div id="symptomTimelineContainer"><p>Loading timeline...</p></div>
                     </div>
-                    <div class="tab-pane fade" id="health-metrics-content" role="tabpanel">
-                        <div id="healthMetricsContainer"><p>Loading metrics...</p></div>
+                    <div id="health-metrics-content" class="tab-pane fade">
+                        <div class="card mb-3">
+                            <div class="card-body">
+                                <form id="metricsForm" class="row g-2 align-items-end">
+                                    <div class="col">
+                                        <label for="weight" class="form-label">Weight (kg)</label>
+                                        <input type="number" class="form-control" id="weight" required>
+                                    </div>
+                                    <div class="col">
+                                        <label for="height" class="form-label">Height (cm)</label>
+                                        <input type="number" class="form-control" id="height" required>
+                                    </div>
+                                    <div class="col-auto">
+                                        <button type="submit" class="btn btn-primary">Record</button>
+                                    </div>
+                                </form>
+                            </div>
+                        </div>
+                        <div class="card mb-3">
+                            <div class="card-body">
+                                <canvas id="weightChart"></canvas>
+                            </div>
+                        </div>
+                        <div class="card">
+                            <div class="card-body">
+                                <canvas id="bmiChart"></canvas>
+                            </div>
+                        </div>
                     </div>
                 </div>
 
